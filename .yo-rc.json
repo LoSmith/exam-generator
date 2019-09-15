@@ -1,0 +1,25 @@
+{
+  "generator-ngx-rocket": {
+    "version": "7.1.0",
+    "props": {
+      "location": "path",
+      "strict": false,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "target": ["web", "electron"],
+      "pwa": true,
+      "desktop": ["windows", "mac", "linux"],
+      "ui": "bootstrap",
+      "auth": true,
+      "lazy": true,
+      "angulartics": false,
+      "tools": ["prettier", "hads", "jest"],
+      "utility": ["lodash", "moment"],
+      "appName": "ExamGenerator",
+      "projectName": "exam-generator",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}

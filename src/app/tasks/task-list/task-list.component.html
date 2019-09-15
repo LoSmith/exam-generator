@@ -1,0 +1,19 @@
+<ngb-accordion #acc="ngbAccordion">
+  <ul>
+    <li *ngFor="let task of tasks">
+      <ngb-panel id="{{ task.id }}" title="Task #{{ task.id }}">
+        <ng-template ngbPanelContent>
+          id: {{ task.id }}
+          <hr />
+          question: {{ task.question }}
+          <hr />
+          solution: {{ task.solution }}
+          <hr />
+          additional information: {{ task.additions }}
+          <hr />
+          Tags: <a href *ngFor="let tag of task.tags">{{ tag }} </a>
+        </ng-template>
+      </ngb-panel>
+    </li>
+  </ul>
+</ngb-accordion>
