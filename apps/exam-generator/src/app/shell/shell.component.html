@@ -1,0 +1,16 @@
+<div class="shell-container">
+  <div class="logo-area">
+    <a routerLink="/">
+      <img src="assets/images/logos/logo.png" />
+    </a>
+  </div>
+  <nav class="navigation-area">
+    <app-sidebar></app-sidebar>
+  </nav>
+  <header class="header-area">
+    <app-header></app-header>
+  </header>
+  <main class="content-area">
+    <router-outlet><app-spinner></app-spinner></router-outlet>
+  </main>
+</div>

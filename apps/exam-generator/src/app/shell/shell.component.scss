@@ -1,0 +1,39 @@
+@import "./../../assets/variables.scss";
+
+.shell-container {
+  display: grid;
+  grid-template-columns: $nav-width auto;
+  grid-template-rows: $header-height auto;
+  grid-template-areas:
+    "logo-area header-area"
+    "navigation-area content-area";
+}
+
+// TODO: Fix the overflow behavior
+
+.logo-area {
+  grid-area: logo-area;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.navigation-area {
+  grid-area: navigation-area;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 2rem;
+}
+
+.header-area {
+  grid-area: header-area;
+  background-color: #eff3f8;
+}
+
+.content-area {
+  grid-area: content-area;
+  background-color: #eff3f8;
+}
