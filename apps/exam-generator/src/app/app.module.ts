@@ -12,10 +12,12 @@ import { SharedModule } from "./shared/shared.module";
 import { AboutModule } from "./about/about.module";
 import { TaskEditModule } from "./task-edit/task-edit.module";
 import { PageNotFoundModule } from "./page-not-found/page-not-found.module";
+import { WelcomeModule } from "./welcome/welcome.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    WelcomeModule,
     ShellModule,
     TaskListModule,
     TaskEditModule,

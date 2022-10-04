@@ -6,6 +6,7 @@ import { ShellModule } from "./shell/shell.module";
 import { AboutComponent } from "./about/about.component";
 import { TaskEditComponent } from "./task-edit/task-edit.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { WelcomeComponent } from "./welcome/welcome.component";
 
 export const routes: Routes = [
   {
@@ -23,6 +24,10 @@ export const routes: Routes = [
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'welcome',
+        component: WelcomeComponent
       },
       {
         path: '**',
