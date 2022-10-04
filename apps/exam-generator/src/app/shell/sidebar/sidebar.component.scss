@@ -24,14 +24,14 @@
     padding: 0.5rem 0.75rem;
     text-decoration: none;
     cursor: pointer;
+    border-radius: 6px;
   }
   a:hover {
     background-color: #f6f9fc;
   }
   a:active {
-    border: #3b82f6;
-    border-radius: 6px;
-    color: #3b82f6;
+    border: black;
+    color: black;
   }
 }
 
