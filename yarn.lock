@@ -7705,9 +7705,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"exam-generator@workspace:.":
+"exam-generator-monorepo@workspace:.":
   version: 0.0.0-use.local
-  resolution: "exam-generator@workspace:."
+  resolution: "exam-generator-monorepo@workspace:."
   dependencies:
     "@angular-devkit/build-angular": ~14.1.1
     "@angular-eslint/eslint-plugin": ~14.0.0

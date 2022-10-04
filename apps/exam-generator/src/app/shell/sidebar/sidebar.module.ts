@@ -5,6 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { RouterModule } from "@angular/router";
+import { ButtonModule } from "primeng/button";
 
 @NgModule({
   declarations: [SidebarComponent],
@@ -14,6 +15,7 @@ import { RouterModule } from "@angular/router";
     HttpClientModule,
     NgbModule,
     RouterModule,
+    ButtonModule
   ],
   exports: [SidebarComponent]
 })

@@ -1,27 +1,14 @@
-<nav class="sidebar-nav">
-  <ul id="sidebarnav">
-    <!-- First level menu -->
-    <li
-      class="sidebar-item"
-      [class.active]="showMenu === sidebarnavItem.title"
-      *ngFor="let sidebarnavItem of sidebarnavItems"
-      [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'"
-    >
-      <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">
-        {{ sidebarnavItem.title }}
-      </div>
+<div class="sidebar-nav">
+  <ng-container *ngFor="let item of menuItems">
+    <div class="menu-category">{{ item.title }}</div>
+    <div class="menu-items">
       <a
-        class="sidebar-link waves-effect waves-dark"
-        [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
-        [ngClass]="[sidebarnavItem.class]"
-        *ngIf="!sidebarnavItem.extralink"
-        (click)="addExpandClass(sidebarnavItem.title)"
-        [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'"
+        *ngFor="let route of item.routes"
+        class="menu-item"
+        [routerLink]="route.class === '' ? [route.path] : null"
       >
-        <i [ngClass]="[sidebarnavItem.icon]"></i>
-        <i class="pi pi-cart-plus"></i>
-        <span class="hide-menu">{{ sidebarnavItem.title }}</span>
+        {{ route.title }}
       </a>
-    </li>
-  </ul>
-</nav>
+    </div>
+  </ng-container>
+</div>
