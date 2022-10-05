@@ -21,13 +21,6 @@
 
 .logo-area {
   grid-area: logo-area;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-
-  border-bottom: solid black 1px;
 }
 
 .navigation-area {
@@ -47,4 +40,3 @@
   background-color: #eff3f8;
   height: 100%;
 }
-

@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import packageJson from '../../../../package.json';
 
 @Component({

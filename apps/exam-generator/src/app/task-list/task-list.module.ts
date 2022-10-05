@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { InputTextModule } from "primeng/inputtext";
 import { TableModule } from "primeng/table";
 import { ButtonModule } from "primeng/button";
+import { SharedModule } from "../shared/shared.module";
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [TableModule, ButtonModule,CommonModule],
+  imports: [TableModule, ButtonModule, CommonModule, SharedModule],
   declarations: [TaskListComponent],
 })
 export class TaskListModule {}

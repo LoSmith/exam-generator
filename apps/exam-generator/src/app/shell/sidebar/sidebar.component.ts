@@ -2,8 +2,6 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ROUTES } from './menu-item-entries';
 import { MenuCategory, MenuItem } from "./menu-item.model";
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-//declare var $: any;
 
 @Component({
   selector: "app-sidebar",
@@ -24,7 +22,6 @@ export class SidebarComponent implements OnInit {
   }
 
   constructor(
-    private modalService: NgbModal,
     private router: Router,
     private route: ActivatedRoute
   ) {}
