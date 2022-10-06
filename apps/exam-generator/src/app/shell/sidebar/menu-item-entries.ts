@@ -1,11 +1,11 @@
-import { MenuCategory, MenuItem } from "./menu-item.model";
+import { MenuCategory } from "./menu-item.model";
 
 export const ROUTES: MenuCategory[] = [
   {
     title: "Pages",
     routes: [
       {
-        path: '/task-list',
+        path: '/tasks',
         title: 'Task list',
         icon: 'pi pi-book',
         class: '',

@@ -2,14 +2,11 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
-import { RouterModule } from "@angular/router";
 
 import { AppRoutingModule } from "../app-routing.module";
 import { SidebarModule } from "./sidebar/sidebar.module";
 import { NavigationModule } from "./header/navigation.module";
-import { AppModule } from "../app.module";
 import { ShellComponent } from "./shell.component";
-import { SpinnerComponent } from "../shared/spinner.component";
 import { SharedModule } from "../shared/shared.module";
 import { RippleModule } from "primeng/ripple";
 
@@ -23,7 +20,7 @@ import { RippleModule } from "primeng/ripple";
     NavigationModule,
     SidebarModule,
     AppRoutingModule,
-    RippleModule
+    RippleModule,
   ],
   exports: [ShellComponent],
 })

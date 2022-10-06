@@ -8,7 +8,8 @@ export enum ExamTaskSubject {
 
 export interface ExamTask {
   id: string;
-  titel: string;
+  question: string;
+  solution: string;
   metadata?: {
     class: number;
     subject: ExamTaskSubject;

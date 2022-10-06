@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  defaultLandingPage: "about"
+  defaultLandingPage: "task-edit/123"
 };
 
 /*

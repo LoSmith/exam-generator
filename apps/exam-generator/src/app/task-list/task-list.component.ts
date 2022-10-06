@@ -4,25 +4,25 @@ import { Router } from "@angular/router";
 
 @Component({
   selector: "app-task-list",
-  templateUrl: "./task-list.component.html"
+  templateUrl: "./task-list.component.html",
 })
 export class TaskListComponent implements OnInit {
-
-  constructor(public router: Router){
-  }
+  constructor(public router: Router) {}
 
   public taskList: ExamTask[] = [];
 
   ngOnInit(): void {
     const dummyTask: ExamTask = {
       id: "somid",
-      titel: "the titel of the task",
+      question: "the titel of the task",
+      solution: ""
     };
-    this.taskList = [...new Array(20).fill(dummyTask)];
+    const numberNewElements = 20;
+    this.taskList = [...new Array(numberNewElements).fill(dummyTask)];
   }
 
-  openDetailView(task: ExamTask) {
-    console.log('hallowelt'+ task.id);
-    this.router.navigate([`task-edit/${task.id}`]);
+  public async openDetailView(task: ExamTask): Promise<void> {
+    console.log("hallowelt" + task.id);
+    await this.router.navigate([`tasks/${task.id}/edit`], {});
   }
 }

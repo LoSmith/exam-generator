@@ -2,7 +2,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { ShellComponent } from "./shell/shell.component";
 import { TaskListComponent } from "./task-list/task-list.component";
 import { NgModule } from "@angular/core";
-import { ShellModule } from "./shell/shell.module";
 import { AboutComponent } from "./about/about.component";
 import { TaskEditComponent } from "./task-edit/task-edit.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
@@ -14,33 +13,35 @@ export const routes: Routes = [
     component: ShellComponent,
     children: [
       {
-        path: "task-list",
-        component: TaskListComponent
+        path: "tasks",
+        component: TaskListComponent,
       },
       {
-        path: "task-edit/:id",
-        component: TaskEditComponent
+        path: "tasks/:id/edit",
+        component: TaskEditComponent,
       },
       {
-        path: 'about',
-        component: AboutComponent
+        path: "about",
+        component: AboutComponent,
       },
       {
-        path: 'welcome',
-        component: WelcomeComponent
+        path: "welcome",
+        component: WelcomeComponent,
       },
       {
-        path: '**',
-        component: PageNotFoundComponent
-      }
+        path: "page-not-found",
+        component: PageNotFoundComponent,
+      },
+      {
+        path: "**",
+        component: PageNotFoundComponent,
+      },
     ],
   },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
