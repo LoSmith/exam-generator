@@ -1,10 +1,6 @@
 import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
-import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
-import { SpinnerComponent } from "./shared/spinner.component";
 import { ShellModule } from "./shell/shell.module";
 import { TaskListModule } from "./task-list/task-list.module";
 import { SharedModule } from "./shared/shared.module";
@@ -13,6 +9,7 @@ import { TaskEditModule } from "./task-edit/task-edit.module";
 import { PageNotFoundModule } from "./page-not-found/page-not-found.module";
 import { WelcomeModule } from "./welcome/welcome.module";
 import { RippleModule } from "primeng/ripple";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +22,8 @@ import { RippleModule } from "primeng/ripple";
     SharedModule,
     PageNotFoundModule,
     AppRoutingModule,
-    RippleModule
+    NgbModule,
+    RippleModule,
   ],
   bootstrap: [AppComponent],
 })

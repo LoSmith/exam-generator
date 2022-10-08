@@ -1,11 +1,9 @@
-<div class="shell-container vh-100">
-  <div class="navigation-area">
+<div class="grid-container">
+  <div class="sidebar-area bg-danger">
     <app-sidebar></app-sidebar>
   </div>
   <div class="content-area">
-    <app-header></app-header>
-    <router-outlet>
-      <app-spinner></app-spinner>
-    </router-outlet>
+      <app-header></app-header>
+      <router-outlet></router-outlet>
   </div>
 </div>

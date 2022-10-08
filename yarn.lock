@@ -399,21 +399,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/localize@npm:~14.1.1":
-  version: 14.1.3
-  resolution: "@angular/localize@npm:14.1.3"
+"@angular/localize@npm:^14.2.5":
+  version: 14.2.5
+  resolution: "@angular/localize@npm:14.2.5"
   dependencies:
     "@babel/core": 7.18.9
     glob: 8.0.3
     yargs: ^17.2.1
   peerDependencies:
-    "@angular/compiler": 14.1.3
-    "@angular/compiler-cli": 14.1.3
+    "@angular/compiler": 14.2.5
+    "@angular/compiler-cli": 14.2.5
   bin:
     localize-extract: tools/bundles/src/extract/cli.js
     localize-migrate: tools/bundles/src/migrate/cli.js
     localize-translate: tools/bundles/src/translate/cli.js
-  checksum: 806557e8e1ad300a7aeda755334f15e00bd9245eb18a0962d8693da7b0d555202e289af8053ecfe8468c2e179a6583affc0958dd2f54e109fb77031c86679061
+  checksum: f76e083eb5bd13696ea80c66662f07e82f2f2df28e65d64b8ea1c66fbe72d572263fe2133bb5946dee33f2b9958319206b377da3f41b898a29e68995cd940bca
   languageName: node
   linkType: hard
 
@@ -2751,6 +2751,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ng-bootstrap/ng-bootstrap@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@ng-bootstrap/ng-bootstrap@npm:13.0.0"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/common": ^14.1.0
+    "@angular/core": ^14.1.0
+    "@angular/forms": ^14.1.0
+    "@angular/localize": ^14.1.0
+    "@popperjs/core": ^2.10.2
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: b4baaadc6c62a84777fe8680e6a6d8f535926b72f8cf67bc09ae6a40b658bf84ab486ab4f67ba0eea7ae8bd43e728e56a4304e2712ba0039034bb62d369d8e3c
+  languageName: node
+  linkType: hard
+
 "@ngtools/webpack@npm:14.1.3":
   version: 14.1.3
   resolution: "@ngtools/webpack@npm:14.1.3"
@@ -3306,6 +3322,13 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: 3490649181878cc8808fb91f3870ef095e5a1fb9647b3ac83740df07379c9d1cf540f24bf2b09d5f26a3a8c805b2c6b9c5be7192bdb9317d0ffffa67426e9f66
+  languageName: node
+  linkType: hard
+
+"@popperjs/core@npm:^2.11.6":
+  version: 2.11.6
+  resolution: "@popperjs/core@npm:2.11.6"
+  checksum: 47fb328cec1924559d759b48235c78574f2d71a8a6c4c03edb6de5d7074078371633b91e39bbf3f901b32aa8af9b9d8f82834856d2f5737a23475036b16817f0
   languageName: node
   linkType: hard
 
@@ -7677,7 +7700,7 @@ __metadata:
     "@angular/core": ~14.1.1
     "@angular/forms": ~14.1.1
     "@angular/language-service": ~14.1.1
-    "@angular/localize": ~14.1.1
+    "@angular/localize": ^14.2.5
     "@angular/platform-browser": ~14.1.1
     "@angular/platform-browser-dynamic": ~14.1.1
     "@angular/router": ~14.1.1
@@ -7686,6 +7709,7 @@ __metadata:
     "@nestjs/platform-express": ^9.0.0
     "@nestjs/schematics": ^9.0.0
     "@nestjs/testing": ^9.0.0
+    "@ng-bootstrap/ng-bootstrap": ^13.0.0
     "@nrwl/angular": 14.5.10
     "@nrwl/cli": 14.5.10
     "@nrwl/cypress": 14.5.10
@@ -7695,6 +7719,7 @@ __metadata:
     "@nrwl/nest": 14.5.10
     "@nrwl/node": 14.5.10
     "@nrwl/workspace": 14.5.10
+    "@popperjs/core": ^2.11.6
     "@types/jest": 27.4.1
     "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": ^5.29.0

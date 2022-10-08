@@ -1,16 +1,22 @@
-@import "./../../assets/variables.scss";
+.grid-container {
 
-.shell-container {
+  height: 100vh;
   display: grid;
-  grid-template-columns: $nav-width auto;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
   grid-template-areas:
-    "navigation-area content-area";
-}
-
-.navigation-area {
-  grid-area: navigation-area;
+    "sidebar-area content-area";
 }
 
 .content-area {
   grid-area: content-area;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sidebar-area {
+  grid-area: sidebar-area;
 }
