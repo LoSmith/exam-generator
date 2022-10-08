@@ -14,8 +14,8 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
     const dummyTask: ExamTask = {
       id: "somid",
-      question: "the titel of the task",
-      solution: ""
+      question: "the question of the task",
+      solution: "the solution of the task"
     };
     const numberNewElements = 20;
     this.taskList = [...new Array(numberNewElements).fill(dummyTask)];

@@ -5,6 +5,7 @@ import {
 } from "../shared/task/models/exam-task.model";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
+import { getKeysFromEnum } from "../utils";
 
 @Component({
   selector: "app-task-edit",
@@ -18,8 +19,13 @@ export class TaskEditComponent implements OnInit {
     metadataClass: new FormControl(""),
     metadataSubject: new FormControl(""),
   };
+
   public task!: ExamTask;
-  private form: FormGroup;
+  form: FormGroup;
+  public examTaskSubjectOptions: string[] = getKeysFromEnum(ExamTaskSubject);
+  public examTaskClassLevelOptions: number[] = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+  ];
 
   constructor(private fb: FormBuilder, public route: ActivatedRoute) {
     this.form = fb.group(this.controls);
@@ -43,7 +49,7 @@ export class TaskEditComponent implements OnInit {
       question: "question",
       solution: "solution",
       metadata: {
-        class: 0,
+        classLevel: 0,
         subject: ExamTaskSubject.biology,
       },
     };

@@ -5,19 +5,18 @@
   Here are all saved tasks in your database.
 </div>
 
-
 <p-table [value]="taskList">
   <ng-template pTemplate="header">
     <tr>
       <th>Id</th>
-      <th>titel</th>
+      <th>question</th>
       <th style="width: 8rem"></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-task>
     <tr>
       <td>{{ task.id }}</td>
-      <td>{{ task.titel }}</td>
+      <td>{{ task.question }}</td>
       <td class="flex">
         <a
           routerLink="/first-component"

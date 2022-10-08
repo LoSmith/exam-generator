@@ -9,7 +9,7 @@
 }
 
 .content-area {
-  background-color: #eaeef6;
+  background-color: rgb(250, 250, 250);
   grid-area: content-area;
   min-height: 0;
   min-width: 0;
@@ -19,5 +19,6 @@
 
 .sidebar-area {
   grid-area: sidebar-area;
-  background-color: #efefef;
+  background-color: #eaeef6;
+  border-right: black solid 1px;
 }
