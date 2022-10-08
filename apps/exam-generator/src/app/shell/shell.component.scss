@@ -1,42 +1,16 @@
 @import "./../../assets/variables.scss";
 
 .shell-container {
-  height: 100%;
   display: grid;
   grid-template-columns: $nav-width auto;
-  grid-template-rows: $header-height auto;
   grid-template-areas:
-    "logo-area header-area"
     "navigation-area content-area";
-
-  a {
-    width: 100%;
-  }
-  img {
-    height: 100%;
-  }
-}
-
-// TODO: Fix the overflow behavior
-
-.logo-area {
-  grid-area: logo-area;
 }
 
 .navigation-area {
   grid-area: navigation-area;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.header-area {
-  grid-area: header-area;
-  background-color: #eff3f8;
 }
 
 .content-area {
   grid-area: content-area;
-  background-color: #eff3f8;
-  height: 100%;
 }

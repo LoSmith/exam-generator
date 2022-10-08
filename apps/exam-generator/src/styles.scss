@@ -1,25 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 // /* PrimeNG */
 @import "~primeng/resources/primeng.min.css";
 @import "~primeng/resources/themes/lara-light-blue/theme.css";
 
-// Some browsers add margins or paddings
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 html,
 body {
-  height: 100%;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
-
-shell-container {
-}
-

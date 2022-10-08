@@ -1,14 +1,32 @@
-<div class="sidebar-nav">
-  <ng-container *ngFor="let item of menuItems">
-    <div class="menu-category">{{ item.title }}</div>
-    <div class="menu-items">
-      <a
-        *ngFor="let route of item.routes"
-        class="menu-item"
-        [routerLink]="route.class === '' ? [route.path] : null"
-      >
-        {{ route.title }}
+<div class="container">
+
+  <div class="d-flex flex-column justify-content-between p-3 bg-light h-100">
+    <div class="container overflow">
+      <a routerLink="/welcome" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="assets/images/logos/logo.png"/>
+        <span class="fs-4">Sidebar</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li *ngFor="let menuEntry of menuItems" class="nav-item pb-2">
+          <a
+            [routerLink]="menuEntry.path !== '' ? [menuEntry.path] : null"
+            class="nav-link active"
+            aria-current="page"
+          >
+            <i [class]="menuEntry.icon"></i>
+            {{menuEntry.title}}
+          </a>
+        </li>
+      </ul>
+      <hr>
+    </div>
+    <div class="container px-2">
+      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+         data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>Andi</strong>
       </a>
     </div>
-  </ng-container>
+  </div>
 </div>

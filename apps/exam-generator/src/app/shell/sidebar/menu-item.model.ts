@@ -6,10 +6,3 @@ export interface MenuItem {
   class: string;
   extralink: boolean;
 }
-
-export interface MenuCategory {
-  title: string;
-  icon?: string;
-  class?: string;
-  routes: MenuItem[]
-}
