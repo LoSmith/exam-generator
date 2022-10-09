@@ -5,7 +5,7 @@ import {
 } from "../shared/task/models/exam-task.model";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { getKeysFromEnum } from "../utils";
+import { getKeysFromEnum } from "../shared/utils";
 
 @Component({
   selector: "app-task-edit",
