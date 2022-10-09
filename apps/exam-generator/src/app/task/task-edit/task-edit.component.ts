@@ -2,10 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import {
   ExamTask,
   ExamTaskSubject,
-} from "../shared/task/models/exam-task.model";
+} from "../models/exam-task.model";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { getKeysFromEnum } from "../shared/utils";
+import { getKeysFromEnum } from "../../shared/utils";
 
 @Component({
   selector: "app-task-edit",

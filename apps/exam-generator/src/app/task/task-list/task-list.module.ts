@@ -5,8 +5,8 @@ import { RouterModule } from "@angular/router";
 import { TableModule } from "primeng/table";
 import { ButtonModule } from "primeng/button";
 
-import { SharedModule } from "../shared/shared.module";
-import { TaskService } from "../shared/task/task.service";
+import { SharedModule } from "../../shared/shared.module";
+import { TaskService } from "../task.service";
 
 @NgModule({
   imports: [

@@ -4,7 +4,7 @@ import { Firestore } from "@angular/fire/firestore";
 import { doc, getDocs, setDoc, deleteDoc } from "@firebase/firestore";
 
 import { ExamTask } from "./models/exam-task.model";
-import { createCollection } from "../firestore-utils";
+import { createCollection } from "../shared/firestore-utils";
 
 @Injectable({
   providedIn: "root",

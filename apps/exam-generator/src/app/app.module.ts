@@ -1,20 +1,20 @@
 import { NgModule } from "@angular/core";
-import { AppComponent } from "./app.component";
-import { AppRoutingModule } from "./app-routing.module";
-import { ShellModule } from "./shell/shell.module";
-import { TaskListModule } from "./task-list/task-list.module";
-import { SharedModule } from "./shared/shared.module";
-import { AboutModule } from "./about/about.module";
-import { TaskEditModule } from "./task-edit/task-edit.module";
-import { PageNotFoundModule } from "./page-not-found/page-not-found.module";
-import { WelcomeModule } from "./welcome/welcome.module";
-import { RippleModule } from "primeng/ripple";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
 import { getFirestore, provideFirestore } from "@angular/fire/firestore";
+import { RippleModule } from "primeng/ripple";
+import { HttpClientModule } from "@angular/common/http";
+
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { ShellModule } from "./shell/shell.module";
+import { SharedModule } from "./shared/shared.module";
+import { AboutModule } from "./about/about.module";
+import { PageNotFoundModule } from "./page-not-found/page-not-found.module";
+import { WelcomeModule } from "./welcome/welcome.module";
 
 import { environment } from "../environments/environment";
-import { HttpClientModule } from "@angular/common/http";
+import { TaskModule } from "./task/task.module";
 
 let resolvePersistenceEnabled: (enabled: boolean) => void;
 
@@ -23,8 +23,7 @@ let resolvePersistenceEnabled: (enabled: boolean) => void;
   imports: [
     WelcomeModule,
     ShellModule,
-    TaskListModule,
-    TaskEditModule,
+    TaskModule,
     AboutModule,
     SharedModule,
     PageNotFoundModule,

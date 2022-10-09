@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { ExamTask } from "../shared/task/models/exam-task.model";
-import { TaskService } from "../shared/task/task.service";
+import { ExamTask } from "../models/exam-task.model";
+import { TaskService } from "../task.service";
 
 @Component({
   selector: "app-task-list",
@@ -11,7 +11,7 @@ import { TaskService } from "../shared/task/task.service";
 export class TaskListComponent {
   public taskList: ExamTask[] = [];
 
-  public constructor(public router: Router, private taskService: TaskService) {
+  public constructor(public router: Router, public taskService: TaskService) {
   }
 
   public async ngOnInit(): Promise<void> {
@@ -19,7 +19,6 @@ export class TaskListComponent {
   }
 
   public async openDetailView(task: ExamTask): Promise<void> {
-    console.log("hallowelt" + task.id);
     await this.router.navigate([`tasks/${task.id}/edit`], {});
   }
 }
