@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   defaultLandingPage: "tasks/123/edit",
-  taskApiEndpoint: "http://localhost:3001/task",
   firebaseConfig: {
     apiKey: "",
     authDomain: "",

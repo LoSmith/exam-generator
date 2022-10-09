@@ -1,4 +1,15 @@
 export const environment = {
-  production: true,
-  defaultLandingPage: "task-list"
+  production: false,
+  defaultLandingPage: "/welcome",
+  firebaseConfig: {
+    apiKey: "",
+    authDomain: "",
+    databaseURL:
+      "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: "",
+  },
 };
