@@ -1,23 +1,18 @@
-import { MenuCategory } from "./menu-item.model";
+import { MenuItem } from "./menu-item.model";
 
-export const ROUTES: MenuCategory[] = [
+export const ROUTES: MenuItem[] = [
   {
-    title: "Pages",
-    routes: [
-      {
-        path: '/tasks',
-        title: 'Task list',
-        icon: 'pi pi-book',
-        class: '',
-        extralink: false,
-      },
-      {
-        path: '/about',
-        title: 'About',
-        icon: 'pi pi-users',
-        class: '',
-        extralink: false,
-      }
-    ]
-  }
+    path: "/tasks",
+    title: "Task list",
+    icon: "pi pi-book",
+    class: "",
+    extralink: false,
+  },
+  {
+    path: "/about",
+    title: "About",
+    icon: "pi pi-users",
+    class: "",
+    extralink: false,
+  },
 ];

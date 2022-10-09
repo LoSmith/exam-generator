@@ -1,41 +1,38 @@
-<div class="container mx-auto">
-  <div class="font-bold text-2xl pb-4">
-    Task List
-  </div>
-  <div>
-    Here are all saved tasks in your database.
-  </div>
-
-
-  <div class="w-auto pt-4">
-    <p-table [value]="taskList">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Id</th>
-          <th>titel</th>
-          <th style="width: 8rem"></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-task>
-        <tr>
-          <td>{{ task.id }}</td>
-          <td>{{ task.titel }}</td>
-          <td class="flex">
-            <a
-              routerLink="/first-component"
-              routerLinkActive="active"
-            ></a>
-            <button
-              pButton
-              type="button"
-              class="p-button-secondary"
-              icon="pi pi-cog"
-              (click)="openDetailView(task)"
-            ></button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-
+<div class="font-bold text-2xl pb-4">
+  Task List
 </div>
+<div>
+  Here are all saved tasks in your database.
+</div>
+
+{{ (taskList) | json }}
+
+<p-table *ngIf="taskList as tasks" [value]="tasks">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>question</th>
+      <th style="width: 8rem"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-task>
+    <tr>
+      <td>{{ task.id }}</td>
+      <td>{{ task.question }}</td>
+      <td class="flex">
+        <a
+          routerLink="/first-component"
+          routerLinkActive="active"
+        ></a>
+        <button
+          pButton
+          type="button"
+          class="p-button-secondary"
+          icon="pi pi-cog"
+          (click)="openDetailView(task)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+

@@ -1,24 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { ExamTask } from "../shared/task/models/exam-task.model";
+import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+
+import { ExamTask } from "../shared/task/models/exam-task.model";
+import { TaskService } from "../shared/task/task.service";
 
 @Component({
   selector: "app-task-list",
   templateUrl: "./task-list.component.html",
 })
-export class TaskListComponent implements OnInit {
-  constructor(public router: Router) {}
-
+export class TaskListComponent {
   public taskList: ExamTask[] = [];
 
-  ngOnInit(): void {
-    const dummyTask: ExamTask = {
-      id: "somid",
-      question: "the titel of the task",
-      solution: ""
-    };
-    const numberNewElements = 20;
-    this.taskList = [...new Array(numberNewElements).fill(dummyTask)];
+  public constructor(public router: Router, private taskService: TaskService) {
+  }
+
+  public async ngOnInit(): Promise<void> {
+    this.taskList = await this.taskService.findAll();
   }
 
   public async openDetailView(task: ExamTask): Promise<void> {

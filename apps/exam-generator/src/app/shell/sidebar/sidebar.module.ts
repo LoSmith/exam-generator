@@ -4,7 +4,6 @@ import { SidebarComponent } from "./sidebar.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-import { ButtonModule } from "primeng/button";
 
 @NgModule({
   declarations: [SidebarComponent],
@@ -12,9 +11,8 @@ import { ButtonModule } from "primeng/button";
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule,
-    ButtonModule
+    RouterModule
   ],
-  exports: [SidebarComponent]
+  exports: [SidebarComponent],
 })
 export class SidebarModule {}

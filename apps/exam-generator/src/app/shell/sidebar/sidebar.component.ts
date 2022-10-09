@@ -1,7 +1,6 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { ROUTES } from './menu-item-entries';
-import { MenuCategory, MenuItem } from "./menu-item.model";
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ROUTES } from "./menu-item-entries";
+import { MenuItem } from "./menu-item.model";
 
 @Component({
   selector: "app-sidebar",
@@ -9,22 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ["./sidebar.component.scss"]
 })
 export class SidebarComponent implements OnInit {
-  showMenu = "";
-  showSubMenu = "";
-  public menuItems: MenuCategory[] = [];
-  // this is for the open close
-  addExpandClass(element: string) {
-    if (element === this.showMenu) {
-      this.showMenu = "0";
-    } else {
-      this.showMenu = element;
-    }
-  }
-
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+  public menuItems: MenuItem[] = [];
 
   // End open close
   ngOnInit() {

@@ -1,42 +1,24 @@
-@import "./../../assets/variables.scss";
-
-.shell-container {
-  height: 100%;
+.grid-container {
+  height: 100vh;
   display: grid;
-  grid-template-columns: $nav-width auto;
-  grid-template-rows: $header-height auto;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr;
+  gap: 0 0;
   grid-template-areas:
-    "logo-area header-area"
-    "navigation-area content-area";
-
-  a {
-    width: 100%;
-  }
-  img {
-    height: 100%;
-  }
-}
-
-// TODO: Fix the overflow behavior
-
-.logo-area {
-  grid-area: logo-area;
-}
-
-.navigation-area {
-  grid-area: navigation-area;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.header-area {
-  grid-area: header-area;
-  background-color: #eff3f8;
+    "sidebar-area content-area";
 }
 
 .content-area {
+  background-color: rgb(250, 250, 250);
   grid-area: content-area;
-  background-color: #eff3f8;
+  min-height: 0;
+  min-width: 0;
   height: 100%;
+  overflow-y: auto;
+}
+
+.sidebar-area {
+  grid-area: sidebar-area;
+  background-color: #eaeef6;
+  border-right: black solid 1px;
 }

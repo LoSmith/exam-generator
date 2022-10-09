@@ -6,7 +6,7 @@ import { environment } from "../../environments/environment";
 @Component({
   selector: "app-shell-layout",
   templateUrl: "./shell.component.html",
-  styleUrls: ["./shell.component.scss"],
+  styleUrls: ["./shell.component.scss"]
 })
 export class ShellComponent implements OnInit {
   constructor(public router: Router) {}

@@ -1,18 +1,9 @@
-<div class="shell-container">
-  <div class="logo-area">
-    <a routerLink="/welcome">
-      <img src="assets/images/logos/logo.png"/>
-    </a>
-  </div>
-  <nav class="navigation-area">
+<div class="grid-container">
+  <div class="sidebar-area p-4">
     <app-sidebar></app-sidebar>
-  </nav>
-  <header class="header-area">
-    <app-header></app-header>
-  </header>
-  <main class="content-area px-32 pt-16">
-    <router-outlet>
-      <app-spinner></app-spinner>
-    </router-outlet>
-  </main>
+  </div>
+  <div class="content-area p-4 px-5">
+      <app-header></app-header>
+      <router-outlet></router-outlet>
+  </div>
 </div>

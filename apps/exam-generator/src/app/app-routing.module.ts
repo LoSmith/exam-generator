@@ -31,11 +31,7 @@ export const routes: Routes = [
       {
         path: "page-not-found",
         component: PageNotFoundComponent,
-      },
-      {
-        path: "**",
-        component: PageNotFoundComponent,
-      },
+      }
     ],
   },
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Message } from "@exam-generator/api-interfaces";
+// import { Message } from "@exam-generator/api-interfaces";
 import { PrimeNGConfig } from "primeng/api";
 
 @Component({
@@ -8,7 +8,7 @@ import { PrimeNGConfig } from "primeng/api";
   templateUrl: "./app.component.html",
 })
 export class AppComponent implements OnInit {
-  hello$ = this.http.get<Message>("/api/hello");
+  // hello$ = this.http.get<Message>("/api/hello");
   constructor(private http: HttpClient, private primengConfig: PrimeNGConfig) {}
 
   ngOnInit() {

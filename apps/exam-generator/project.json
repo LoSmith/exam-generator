@@ -22,6 +22,7 @@
         "styles": [
           "apps/exam-generator/src/styles.scss",
           "apps/exam-generator/src/assets/variables.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
           "node_modules/primeicons/primeicons.css"
         ],
         "scripts": []

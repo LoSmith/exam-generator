@@ -6,6 +6,7 @@ import { TableModule } from "primeng/table";
 import { ButtonModule } from "primeng/button";
 
 import { SharedModule } from "../shared/shared.module";
+import { TaskService } from "../shared/task/task.service";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { SharedModule } from "../shared/shared.module";
     SharedModule,
     RouterModule,
   ],
+  providers: [TaskService],
   declarations: [TaskListComponent],
 })
 export class TaskListModule {}

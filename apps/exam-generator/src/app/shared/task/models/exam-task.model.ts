@@ -11,7 +11,7 @@ export interface ExamTask {
   question: string;
   solution: string;
   metadata?: {
-    class: number;
+    classLevel: number;
     subject: ExamTaskSubject;
   };
 }
