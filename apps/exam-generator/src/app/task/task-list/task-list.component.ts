@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
 import { ExamTask } from "../models/exam-task.model";
@@ -10,8 +10,6 @@ import { v4 as uuidv4 } from "uuid";
   templateUrl: "./task-list.component.html",
 })
 export class TaskListComponent implements OnInit {
-  @ViewChild('taskTable') taskTable!: ElementRef;
-
   public taskList: ExamTask[] = [];
 
   public constructor(public router: Router, public taskService: TaskService) {}

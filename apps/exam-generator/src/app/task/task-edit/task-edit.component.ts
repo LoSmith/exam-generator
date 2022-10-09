@@ -11,15 +11,16 @@ import { createNewExamTask } from "../models/default-exam-task";
   templateUrl: "./task-edit.component.html",
 })
 export class TaskEditComponent implements OnInit {
+
+  public urlTaskId = "";
   public controls = {
     id: new FormControl(""),
     question: new FormControl(""),
     solution: new FormControl(""),
-    metadataClass: new FormControl(0),
+    metadataClass: new FormControl(1),
     metadataSubject: new FormControl(ExamTaskSubject.biology),
   };
 
-  public loadedTask!: ExamTask;
   form: FormGroup;
   public examTaskSubjectOptions: string[] = getKeysFromEnum(ExamTaskSubject);
   public examTaskClassLevelOptions: number[] = [
@@ -36,45 +37,34 @@ export class TaskEditComponent implements OnInit {
   }
 
   public async ngOnInit(): Promise<void> {
-    const taskId = this.route.snapshot.params["id"];
+    this.urlTaskId = this.route.snapshot.params["id"];
+    const existingItemInDB = await this.taskService.find(this.urlTaskId);
 
-    if (await this.isTaskIdValid(taskId)) {
-      this.loadedTask = await this.loadTask(taskId);
-
-      // TODO: hier weitermachen... wenn task valid, dann laden.
-      this.controls.id.setValue(this.loadedTask.id);
-      this.controls.question.setValue(this.loadedTask.question);
-      this.controls.solution.setValue(this.loadedTask.solution);
-      this.controls.metadataClass.setValue(
-        this.loadedTask.metadata?.classLevel
-          ? this.loadedTask.metadata?.classLevel
-          : 0
-      );
-      this.controls.metadataSubject.setValue(
-        this.loadedTask.metadata?.subject
-          ? this.loadedTask.metadata?.subject
-          : ExamTaskSubject.biology
-      );
+    if (existingItemInDB) {
+      this.loadTaskIntoForms(existingItemInDB);
     } else {
-      await this.router.navigate(["exam-task-not-found"]);
+      const newDummyTask = createNewExamTask(this.urlTaskId);
+      this.loadTaskIntoForms(newDummyTask);
     }
   }
 
-  public async loadTask(taskId: string): Promise<ExamTask> {
-    let task = await this.taskService.find(taskId);
-    if (!task) {
-      //TODO info there is no task wit this id yet
-      task = createNewExamTask();
-    }
-    return task;
+  public loadTaskIntoForms(examTask: ExamTask): ExamTask {
+    this.controls.id.setValue(examTask.id);
+    this.controls.question.setValue(examTask.question);
+    this.controls.solution.setValue(examTask.solution);
+    this.controls.metadataClass.setValue(
+      examTask.metadata?.classLevel ? examTask.metadata?.classLevel : 1
+    );
+    this.controls.metadataSubject.setValue(
+      examTask.metadata?.subject ? examTask.metadata?.subject : 0
+    );
+    return examTask;
   }
 
   public async saveTask(): Promise<void> {
-    console.log(this.form.getRawValue());
-
-    const previousTask = await this.taskService.find(this.loadedTask.id);
+    const isUpdateCase = await this.taskService.find(this.urlTaskId);
     const newTask = this.serializeFormToExamTask();
-    if (previousTask) {
+    if (isUpdateCase) {
       await this.taskService.update(newTask);
     } else {
       await this.taskService.create(newTask);
@@ -89,7 +79,7 @@ export class TaskEditComponent implements OnInit {
 
   private serializeFormToExamTask(): ExamTask {
     return {
-      id: this.loadedTask.id,
+      id: this.urlTaskId,
       question: this.controls.question.getRawValue() || "",
       solution: this.controls.solution.getRawValue() || "",
       metadata: {
@@ -100,15 +90,16 @@ export class TaskEditComponent implements OnInit {
     };
   }
 
-  private async isTaskIdValid(id: string): Promise<boolean> {
+  private async itemExistsAlready(id: string): Promise<boolean> {
     const routeParamIsNewItem = this.route.snapshot.params["new"];
-    const dbEntry = await this.loadTask(id);
+    const itemExistsInDB = (await this.taskService.find(id)) !== undefined;
 
+    // const dbEntry = await this.loadTask(id);
     let isValid = false;
-    if (!dbEntry && routeParamIsNewItem) {
+    if (itemExistsInDB && !routeParamIsNewItem) {
       isValid = true;
     }
-    if (dbEntry && !routeParamIsNewItem) {
+    if (itemExistsInDB && !routeParamIsNewItem) {
       isValid = true;
     }
 

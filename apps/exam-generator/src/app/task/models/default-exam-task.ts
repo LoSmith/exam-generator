@@ -3,17 +3,17 @@ import { v4 as uuidv4 } from "uuid";
 
 export const DEFAULT_EXAM_TASK: ExamTask = {
   id: "",
-  question: "",
-  solution: "",
+  question: "default",
+  solution: "default",
   metadata: {
-    classLevel: 1,
+    classLevel: 13,
     subject: ExamTaskSubject.dummy,
   },
 };
 
-export function createNewExamTask(): ExamTask {
+export function createNewExamTask(id: string = uuidv4()): ExamTask {
   return {
     ...DEFAULT_EXAM_TASK,
-    id: uuidv4(),
+    id
   };
 }

@@ -9,11 +9,11 @@
 </div>
 
 <p-card>
-  <form class="d-grid" (submit)="saveTask()">
+  <form class="d-grid">
     <div class="row pb-2">
       <label for="id" class="col col-form-label">ID</label>
       <div class="col-sm-10">
-        <textarea type="text" class="form-control" id="id" [formControl]="controls.id"></textarea>
+        <textarea type="text" class="form-control" contenteditable="false" id="id" [formControl]="controls.id"></textarea>
       </div>
     </div>
 
@@ -42,16 +42,16 @@
         <label for="subject">Subject</label>
         {{examTaskSubjectOptions | json}}
         <select type="text" class="form-control" id="subject" [formControl]="controls.metadataSubject">
-          <option *ngFor="let examTaskSubjectOption of examTaskSubjectOptions">{{examTaskSubjectOption | titlecase}}</option>
+          <option *ngFor="let examTaskSubjectOption of examTaskSubjectOptions">{{examTaskSubjectOption}}</option>
         </select>
       </div>
     </div>
 
-    <div class="d-flex justify-content-end pt-4">
-        <button pButton (click)="abortTaskEdit()" class="p-button-danger">Abort</button>
-        <span class="px-3"> </span>
-        <button pButton (click)="saveTask()" class="p-button-success">Save</button>
-    </div>
 
   </form>
+  <div class="d-flex justify-content-end pt-4">
+    <button pButton (click)="abortTaskEdit()" class="p-button-danger">Abort</button>
+    <span class="px-3"> </span>
+    <button pButton (click)="saveTask()" class="p-button-success">Save</button>
+  </div>
 </p-card>
