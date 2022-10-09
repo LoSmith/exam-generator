@@ -4,7 +4,7 @@ import {
   ExamTaskSubject,
 } from "../shared/task/models/exam-task.model";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { getKeysFromEnum } from "../utils";
 
 @Component({
@@ -27,7 +27,11 @@ export class TaskEditComponent implements OnInit {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
   ];
 
-  constructor(private fb: FormBuilder, public route: ActivatedRoute) {
+  constructor(
+    private fb: FormBuilder,
+    public route: ActivatedRoute,
+    public router: Router,
+  ) {
     this.form = fb.group(this.controls);
   }
 
@@ -55,7 +59,17 @@ export class TaskEditComponent implements OnInit {
     };
   }
 
-  public saveTask(): void {
+  public async saveTask(): Promise<void> {
     console.log(this.form.getRawValue());
+    await this.router.navigate(["tasks"]);
+  }
+
+  public async abortTaskEdit(): Promise<void> {
+    await this.router.navigate(["tasks"]);
+  }
+
+  public async createTask() {
+    const newTask: ExamTask = this.form.getRawValue();
+    // await this.taskService.create(newTask);
   }
 }

@@ -1,3 +1,11 @@
+# TODO
+
+* use firebase for datastorage
+
+
+
+
+
 # ExamGenerator
 
 This project was generated using [Nx](https://nx.dev).

@@ -10,6 +10,13 @@ import { PageNotFoundModule } from "./page-not-found/page-not-found.module";
 import { WelcomeModule } from "./welcome/welcome.module";
 import { RippleModule } from "primeng/ripple";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
+import { getFirestore, provideFirestore } from "@angular/fire/firestore";
+
+import { environment } from "../environments/environment";
+import { HttpClientModule } from "@angular/common/http";
+
+let resolvePersistenceEnabled: (enabled: boolean) => void;
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +31,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     AppRoutingModule,
     NgbModule,
     RippleModule,
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
   bootstrap: [AppComponent],
 })

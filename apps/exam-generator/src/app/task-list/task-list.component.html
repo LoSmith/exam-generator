@@ -5,7 +5,9 @@
   Here are all saved tasks in your database.
 </div>
 
-<p-table [value]="taskList">
+{{ (taskList) | json }}
+
+<p-table *ngIf="taskList as tasks" [value]="tasks">
   <ng-template pTemplate="header">
     <tr>
       <th>Id</th>
