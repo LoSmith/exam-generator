@@ -1,4 +1,6 @@
+
 export enum ExamTaskSubject {
+  dummy,
   math,
   english,
   german,

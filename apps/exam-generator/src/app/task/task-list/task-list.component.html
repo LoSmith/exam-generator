@@ -6,8 +6,11 @@
 </div>
 
 {{ (taskList) | json }}
+<br>
+<button pButton (click)="createNewTask()" class="p-button-success">Create new Task</button>
 
-<p-table *ngIf="taskList as tasks" [value]="tasks">
+
+<p-table #taskTable *ngIf="taskList as tasks" [value]="tasks">
   <ng-template pTemplate="header">
     <tr>
       <th>Id</th>
@@ -20,16 +23,19 @@
       <td>{{ task.id }}</td>
       <td>{{ task.question }}</td>
       <td class="flex">
-        <a
-          routerLink="/first-component"
-          routerLinkActive="active"
-        ></a>
         <button
           pButton
           type="button"
           class="p-button-secondary"
-          icon="pi pi-cog"
-          (click)="openDetailView(task)"
+          icon="pi pi-trash"
+          (click)="deleteTask(task)"
+        ></button>
+        <button
+          pButton
+          type="button"
+          class="p-button-secondary"
+          icon="pi pi-pencil"
+          (click)="editTask(task)"
         ></button>
       </td>
     </tr>
