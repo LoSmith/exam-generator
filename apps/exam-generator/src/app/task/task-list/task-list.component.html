@@ -1,42 +1,50 @@
-<div class="font-bold text-2xl pb-4">
+<div class="h2">
   Task List
 </div>
 <div>
   Here are all saved tasks in your database.
 </div>
 
-{{ (taskList) | json }}
+<!--{{ (taskList) | json }}-->
 <br>
-<button pButton (click)="createNewTask()" class="p-button-success">Create new Task</button>
+<div class="d-flex justify-content-end">
+  <button pButton (click)="createNewTask()" class="p-button-success">Create new Task</button>
+</div>
 
 
 <p-table *ngIf="taskList as tasks" [value]="tasks">
   <ng-template pTemplate="header">
     <tr>
-      <th>Id</th>
+<!--      <th>Id</th>-->
       <th>question</th>
-      <th style="width: auto"></th>
+      <th>solution</th>
+      <th>class-level</th>
+      <th>subject</th>
+      <th></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-task>
     <tr>
-      <td>{{ task.id }}</td>
+<!--      <td>{{ task.id }}</td>-->
       <td>{{ task.question }}</td>
+      <td>{{ task.solution }}</td>
+      <td>{{ task.metadata.classLevel }}</td>
+      <td>{{ task.metadata.subject }}</td>
       <td class="flex-row">
-        <button
-          pButton
-          type="button"
-          class="p-button-secondary"
-          icon="pi pi-trash"
-          (click)="deleteTask(task)"
-        ></button>
-        <span class="px-2"> </span>
         <button
           pButton
           type="button"
           class="p-button-secondary"
           icon="pi pi-pencil"
           (click)="editTask(task)"
+        ></button>
+        <span class="px-2"> </span>
+        <button
+          pButton
+          type="button"
+          class="p-button-secondary"
+          icon="pi pi-trash"
+          (click)="deleteTask(task)"
         ></button>
       </td>
     </tr>

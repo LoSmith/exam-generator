@@ -1,6 +1,5 @@
-
 export enum ExamTaskSubject {
-  dummy,
+  notSet,
   math,
   english,
   german,
@@ -8,12 +7,20 @@ export enum ExamTaskSubject {
   biology,
 }
 
-export interface ExamTask {
-  id: string;
+export interface SubExamTask {
   question: string;
   solution: string;
-  metadata?: {
-    classLevel: number;
-    subject: ExamTaskSubject;
+}
+
+export interface ExamTask {
+  id: string;
+  metadata: {
+    classLevel?: number;
+    subject?: ExamTaskSubject;
   };
+  context: {
+    text?: string;
+    image?: string;
+  };
+  subtasks: SubExamTask[];
 }

@@ -5,9 +5,16 @@ import { CardModule } from "primeng/card";
 import { InputTextModule } from "primeng/inputtext";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
+import { SubTaskEditComponent } from "./sub-task-edit.component";
 
 @NgModule({
-  declarations: [TaskEditComponent],
-  imports: [CommonModule, CardModule, InputTextModule, ReactiveFormsModule, ButtonModule],
+  declarations: [TaskEditComponent, SubTaskEditComponent],
+  imports: [
+    CommonModule,
+    CardModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    ButtonModule,
+  ],
 })
 export class TaskEditModule {}
