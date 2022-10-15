@@ -4,9 +4,12 @@
   <p>Players:</p>
   <button color="primary" (click)="addSubtask()">Add Player</button>
   <ul>
-    <li *ngFor="let player of subtasks?.controls; let i = index">
-      <app-exam-sub-task [index]="i" [subTaskForm]="examTaskForm"
-                         (deleteSubTask)="deleteSubtask($event)"></app-exam-sub-task>
+    <li *ngFor="let subtask of subtasks?.controls; let i = index">
+      <app-exam-sub-task
+        [index]="i"
+        [subTaskForm]="$any(subtask)"
+        (deleteSubTask)="deleteSubtask($event)"
+      ></app-exam-sub-task>
     </li>
   </ul>
 
