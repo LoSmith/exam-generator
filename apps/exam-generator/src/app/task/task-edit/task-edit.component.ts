@@ -25,23 +25,25 @@ export class TaskEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.examTaskFormSub?.unsubscribe();
+    this.examTaskFormSub.unsubscribe();
   }
 
   addSubtask() {
-    this.teamFormService?.addSubtask();
+    this.teamFormService.addSubtask();
   }
 
   deleteSubtask(index: number) {
-    this.teamFormService?.deleteSubtask(index);
+    this.teamFormService.deleteSubtask(index);
   }
 
   saveExamTask() {
     console.log("team saved!");
-    console.log(this.examTaskForm?.value);
+    console.log(this.examTaskForm.value);
   }
 
   async abortTaskEdit() {
+    this.examTaskForm.reset();
+    this.subtasks.clear();
     await this.router.navigate(["tasks"]);
   }
 }

@@ -38,7 +38,8 @@ Form valid: <span class="status">{{examTaskForm.status}}</span>
     </p-card>
 
     <p-card class="pb-2 d-flex flex-column">
-      <h5>SUBTASKS</h5>
+      <h5>SUBTASKS {{subtasks.length}}</h5>
+
       <div *ngFor="let subtask of subtasks?.controls; let i = index">
         <app-exam-sub-task
           [index]="i"
