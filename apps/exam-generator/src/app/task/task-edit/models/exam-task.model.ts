@@ -1,4 +1,4 @@
-import { ExamSubTask } from "../player";
+import { ExamSubTask } from "../exam-sub-task";
 
 export class ExamTask {
   id: string;

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
 import { ExamTask, ExamTaskForm } from "./models";
-import { ExamSubTask, ExamSubTaskForm } from "./player";
+import { ExamSubTask, ExamSubTaskForm } from "./exam-sub-task";
 
 @Injectable()
 export class TaskEditFormService {

@@ -6,7 +6,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
 import { TaskEditFormService } from "./task-edit-form.service";
-import { ExamSubTaskComponent } from "./player/exam-sub-task.component";
+import { ExamSubTaskComponent } from "./exam-sub-task/exam-sub-task.component";
 
 @NgModule({
   declarations: [TaskEditComponent, ExamSubTaskComponent],
