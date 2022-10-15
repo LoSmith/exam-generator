@@ -5,7 +5,6 @@ import { CardModule } from "primeng/card";
 import { InputTextModule } from "primeng/inputtext";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
-import { TaskEditFormService } from "./task-edit-form.service";
 import { ExamSubTaskComponent } from "./exam-sub-task/exam-sub-task.component";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { ChipsModule } from "primeng/chips";
@@ -30,7 +29,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ConfirmPopupModule,
     BrowserAnimationsModule,
   ],
-  providers: [TaskEditFormService, ConfirmationService],
+  providers: [ConfirmationService],
 })
 export class TaskEditModule {
 }

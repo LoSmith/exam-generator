@@ -1,19 +1,16 @@
-import { FormArray, FormControl } from "@angular/forms";
+import { AbstractControl, FormArray } from "@angular/forms";
 
-export function getKeysFromEnum<T>(object: T): string[] {
-  return Object.keys(object).slice(
-    Object.keys(object).length / 2,
-    Object.keys(object).length
-  );
-}
-
-export function trySetFormControl(
-  targetFormControl: FormControl | FormArray,
-  value: any
+export function trySetFormValue(
+  targetFormControl: AbstractControl | undefined,
+  value: any,
+  nameOfTheFormControl: string = ""
 ): void {
-  if (value) {
+  if (targetFormControl && value !== undefined) {
     targetFormControl.setValue(value);
   } else {
-    console.log(`could not set formControl, because value was undefined`);
+    console.log(
+      `Could not set formControl ${nameOfTheFormControl}, because value was undefined`,
+      [value, targetFormControl]
+    );
   }
 }

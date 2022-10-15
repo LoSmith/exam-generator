@@ -55,7 +55,13 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/exam-generator/src/environments/environment.ts",
+              "with": "apps/exam-generator/src/environments/environment.dev.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"

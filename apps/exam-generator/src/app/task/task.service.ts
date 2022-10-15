@@ -13,8 +13,7 @@ export class TaskService {
   private collectionPath = "tasks";
   tasksCol = createCollection<ExamTask>(this.firestore, this.collectionPath);
 
-  constructor(private http: HttpClient, private firestore: Firestore) {
-  }
+  constructor(private http: HttpClient, private firestore: Firestore) {}
 
   public async create(data: ExamTask): Promise<ExamTask> {
     await setDoc(doc(this.tasksCol, data.id), data);

@@ -1,24 +1,32 @@
 <div class="h2">
   Task Edit
 </div>
-Form valid: <span class="status">{{examTaskForm.status}}</span>
+
+{{ formGroup.getRawValue() | json}}
 
 <div>
-  <form class="d-grid" [formGroup]="examTaskForm">
+  <form class="d-grid" [formGroup]="formGroup">
     <p-card class="d-grid pb-2">
       <h5>Meta Data</h5>
+      <input [formControl]="controls.id">
       <div class="row pb-2">
         <div class="col d-flex flex-column">
           <label for="metadataTags">metadataTags</label>
-          <p-chips formControlName="metadataTags"></p-chips>
+          <input [formControl]="controls.metadataTags">
         </div>
         <div class="col d-flex flex-column">
           <label for="metadataClassLevel">metadataClassLevel</label>
-          <select formControlName="metadataClassLevel" placeholder="metadataClassLevel"></select>
+          <select [formControl]="controls.metadataClassLevel">
+            <option *ngFor="let classLevelOption of examTaskClassLevelOptions"
+                    [value]="classLevelOption">{{classLevelOption}}</option>
+          </select>
         </div>
         <div class="col d-flex flex-column">
           <label for="metadataSubject">metadataSubject</label>
-          <select formControlName="metadataSubject" placeholder="metadataSubject"></select>
+          <select [formControl]="controls.metadataSubject">
+            <option *ngFor="let examTaskSubjectOption of examTaskSubjectOptions"
+                    [value]="examTaskSubjectOption">{{examTaskSubjectOption}}</option>
+          </select>
         </div>
       </div>
     </p-card>
@@ -29,21 +37,22 @@ Form valid: <span class="status">{{examTaskForm.status}}</span>
         <div class="d-flex flex-column">
           <label for="contextImage">contextImage</label>
           <p-image height="300px" src="assets/images/bg/bg1.jpg"></p-image>
+          <input [formControl]="controls.contextImage">
         </div>
         <div class="d-flex flex-column w-100">
           <label for="contextDescription">contextDescription</label>
-          <textarea formControlName="contextDescription" placeholder="contextDescription"></textarea>
+          <input [formControl]="controls.contextDescription">
         </div>
       </div>
     </p-card>
 
     <p-card class="pb-2 d-flex flex-column">
-      <h5>SUBTASKS {{subtasks.length}}</h5>
+      <h5>SUBTASKS {{controls.subtasks.length}}</h5>
 
-      <div *ngFor="let subtask of subtasks?.controls; let i = index">
+      <div *ngFor="let subtask of controls.subtasks.controls; let i = index">
         <app-exam-sub-task
           [index]="i"
-          [subTaskForm]="$any(subtask)"
+          [subTaskForm]="subtask"
           (delete)="deleteSubtask($event)"
         ></app-exam-sub-task>
       </div>

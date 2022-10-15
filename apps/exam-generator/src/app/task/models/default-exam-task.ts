@@ -2,10 +2,10 @@ import { ExamTask, ExamTaskSubject } from "./exam-task.model";
 import { v4 as uuidv4 } from "uuid";
 import { ExamSubTask } from "./exam-sub-task.model";
 
-export const DEFAULT_EXAM_TASK: ExamTask = {
+export const EMPTY_EXAM_TASK: ExamTask = {
   id: "",
   metadata: {
-    classLevel: 0,
+    classLevel: 1,
     subject: ExamTaskSubject.none,
     tags: [],
   },
@@ -16,17 +16,15 @@ export const DEFAULT_EXAM_TASK: ExamTask = {
   subtasks: [],
 };
 
+export const EMPTY_EXAM_SUB_TASK: ExamSubTask = {
+  question: "",
+  solution: "",
+};
+
 export function createNewEmptyExamTask(id: string = uuidv4()): ExamTask {
   return {
-    ...DEFAULT_EXAM_TASK,
+    ...EMPTY_EXAM_TASK,
     id: id,
-  };
-}
-
-export function createNewEmptyExamSubTask(): ExamSubTask {
-  return {
-    question: "",
-    solution: "",
   };
 }
 
@@ -41,13 +39,18 @@ const createSubTasks = (numberOfSubtasks: number): ExamSubTask[] => {
   return result;
 };
 
-export function createExampleExamTask(subTaskNumber: number): ExamTask {
+export function createExampleExamTask(id: string = uuidv4(), subTaskNumber: number): ExamTask {
   return {
-    ...DEFAULT_EXAM_TASK,
-    id: uuidv4(),
+    ...EMPTY_EXAM_TASK,
+    id,
+    metadata: {
+      classLevel: 13,
+      subject: ExamTaskSubject.esTut,
+      tags: ["123"],
+    },
     context: {
-      description: "context-dummy-text",
-      image: "some-image-encoded",
+      description: "description es tut",
+      image: "image es tut",
     },
     subtasks: createSubTasks(subTaskNumber),
   };

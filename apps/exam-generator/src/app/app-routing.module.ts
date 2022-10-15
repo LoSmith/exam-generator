@@ -22,7 +22,7 @@ export const routes: Routes = [
         component: TaskEditComponent,
       },
       {
-        path: "tasks/**/edit",
+        path: "tasks/:id/task-not-found",
         component: ExamTaskNotFoundComponent,
       },
       {

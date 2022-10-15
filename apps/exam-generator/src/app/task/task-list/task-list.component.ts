@@ -25,7 +25,7 @@ export class TaskListComponent implements OnInit {
   public async createNewTask(): Promise<void> {
     await this.router.navigate([`tasks/${uuidv4()}/edit`], {
       queryParams: {
-        new: true,
+        isNewItem: true,
       },
     });
   }

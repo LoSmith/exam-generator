@@ -20,12 +20,13 @@ export class ExamTask {
 }
 
 export enum ExamTaskSubject {
-  none,
-  math,
-  english,
-  german,
-  it,
-  biology,
+  none= "none",
+  math= "math",
+  english= "english",
+  german= "german",
+  it= "it",
+  biology= "biology",
+  esTut= "esTut"
 }
 
 export interface ExamTaskContext {

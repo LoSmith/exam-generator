@@ -1,4 +1,11 @@
-<div>
-  Task not found. You want to create a new?
-  <button (click)="createNewTask()"></button>
+<div class="p-2">
+  <p-card class="text-center">
+
+    <h4>Task not found.</h4>
+    <br/>
+    <h5>You want to create a new?</h5>
+    <br/>
+    <p-button pRipple class="px-2" (click)="createNewTask()" label="Create New Task" ></p-button>
+    <p-button pRipple class="px-2" (click)="gotoList()" label="Show all available Tasks"></p-button>
+  </p-card>
 </div>
