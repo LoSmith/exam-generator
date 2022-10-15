@@ -11,10 +11,9 @@
       <textarea formControlName="solution" placeholder="solution"></textarea>
     </div>
     <div class="col-auto d-flex align-items-center end">
-      <button pRipple pButton (click)="deleteSubTask()" class="pi pi-trash p-button-secondary"> Delete Item</button>
+      <p-confirmPopup></p-confirmPopup>
+      <button pButton (click)="deleteSubTask($event)" icon="pi pi-trash" label="Delete Item" class="p-button-secondary"></button>
     </div>
   </div>
 <!--  <pre>SubTask Form Status: <span class="status">{{subTaskForm.status}}</span></pre>-->
 </form>
-
-

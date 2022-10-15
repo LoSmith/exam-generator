@@ -6,6 +6,7 @@ import {
   Output,
 } from "@angular/core";
 import { FormGroup } from "@angular/forms";
+import { ConfirmationService } from "primeng/api";
 
 @Component({
   selector: "app-exam-sub-task[index][subTaskForm]",
@@ -17,7 +18,20 @@ export class ExamSubTaskComponent {
   @Input() index!: number;
   @Output() delete: EventEmitter<number> = new EventEmitter();
 
-  deleteSubTask() {
-    this.delete.emit(this.index);
+  constructor(private confirmationService: ConfirmationService) {}
+
+
+  deleteSubTask(event: Event) {
+    this.confirmationService.confirm({
+      target: event.target || undefined,
+      message: "Are you sure you want to delete the subtask?",
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.delete.emit(this.index);
+      },
+      reject: () => {
+        //reject action
+      }
+    });
   }
 }

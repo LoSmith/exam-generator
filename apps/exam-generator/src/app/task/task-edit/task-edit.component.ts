@@ -3,6 +3,7 @@ import { FormArray, FormGroup } from "@angular/forms";
 import { TaskEditFormService } from "./task-edit-form.service";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
+import { ConfirmationService } from "primeng/api";
 
 @Component({
   selector: "app-task-edit",
@@ -13,7 +14,11 @@ export class TaskEditComponent implements OnInit, OnDestroy {
   examTaskFormSub!: Subscription;
   subtasks!: FormArray;
 
-  constructor(private teamFormService: TaskEditFormService, private router: Router) {}
+  constructor(
+    private teamFormService: TaskEditFormService,
+    private router: Router,
+    private confirmationService: ConfirmationService
+  ) {}
 
   ngOnInit() {
     this.examTaskFormSub = this.teamFormService.examTaskForm$.subscribe(
@@ -22,6 +27,9 @@ export class TaskEditComponent implements OnInit, OnDestroy {
         this.subtasks = this.examTaskForm.get("subtasks") as FormArray;
       }
     );
+
+    this.examTaskForm.reset();
+    this.subtasks.clear();
   }
 
   ngOnDestroy() {
@@ -41,9 +49,17 @@ export class TaskEditComponent implements OnInit, OnDestroy {
     console.log(this.examTaskForm.value);
   }
 
-  async abortTaskEdit() {
-    this.examTaskForm.reset();
-    this.subtasks.clear();
-    await this.router.navigate(["tasks"]);
+  async abortTaskEdit(event: Event) {
+    this.confirmationService.confirm({
+      target: event.target || undefined,
+      message: "Are you sure you want to exit the task editor? All changes will be lost on abort.",
+      icon: "pi pi-exclamation-triangle",
+      accept: async () => {
+        await this.router.navigate(["tasks"]);
+      },
+      reject: () => {
+        //reject action
+      },
+    });
   }
 }

@@ -11,6 +11,9 @@ import { AutoCompleteModule } from "primeng/autocomplete";
 import { ChipsModule } from "primeng/chips";
 import { ImageModule } from "primeng/image";
 import { RippleModule } from "primeng/ripple";
+import { ConfirmPopupModule } from "primeng/confirmpopup";
+import { ConfirmationService } from "primeng/api";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [TaskEditComponent, ExamSubTaskComponent],
@@ -24,7 +27,10 @@ import { RippleModule } from "primeng/ripple";
     ChipsModule,
     ImageModule,
     RippleModule,
+    ConfirmPopupModule,
+    BrowserAnimationsModule,
   ],
-  providers: [TaskEditFormService],
+  providers: [TaskEditFormService, ConfirmationService],
 })
-export class TaskEditModule {}
+export class TaskEditModule {
+}

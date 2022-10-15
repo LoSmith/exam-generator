@@ -51,9 +51,10 @@ Form valid: <span class="status">{{examTaskForm.status}}</span>
     </p-card>
 
     <div class="d-flex justify-content-end pt-4">
-      <button pRipple pButton (click)="abortTaskEdit()" class="p-button-danger">Abort</button>
+      <p-confirmPopup></p-confirmPopup>
+      <button pRipple pButton (click)="abortTaskEdit($event)" class="p-button-text" label="Abort"></button>
       <span class="px-3"> </span>
-      <button pRipple pButton (click)="saveExamTask()" class="p-button-success">Save</button>
+      <button pRipple pButton (click)="saveExamTask()" class="p-button-success" label="Save"></button>
     </div>
   </form>
 </div>
