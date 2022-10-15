@@ -1,5 +1,5 @@
 import { FormArray, FormControl } from "@angular/forms";
-import { ExamTask } from "./exam-task.model";
+import { ExamTask } from "../models/exam-task.model";
 
 export class ExamTaskForm {
   id = new FormControl();

@@ -1,11 +1,12 @@
-import { ExamTask, ExamTaskSubject, SubExamTask } from "./exam-task.model";
+import { ExamTask, ExamTaskSubject } from "./exam-task.model";
 import { v4 as uuidv4 } from "uuid";
+import { ExamSubTask } from "./exam-sub-task.model";
 
 export const DEFAULT_EXAM_TASK: ExamTask = {
   id: "",
   metadata: {
     classLevel: 0,
-    subject: ExamTaskSubject.notSet,
+    subject: ExamTaskSubject.none,
   },
   context: {
     text: "",
@@ -21,8 +22,15 @@ export function createNewEmptyExamTask(id: string = uuidv4()): ExamTask {
   };
 }
 
-const createSubTasks = (numberOfSubtasks: number): SubExamTask[] => {
-  const result: SubExamTask[] = [];
+export function createNewEmptyExamSubTask(): ExamSubTask {
+  return {
+    question: "",
+    solution: "",
+  };
+}
+
+const createSubTasks = (numberOfSubtasks: number): ExamSubTask[] => {
+  const result: ExamSubTask[] = [];
   for (let i = 0; i < numberOfSubtasks; i++) {
     result.push({
       question: `subtask-${i}-question`,

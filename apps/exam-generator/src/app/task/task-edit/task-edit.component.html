@@ -1,5 +1,5 @@
 <form [formGroup]="examTaskForm">
-  Team Name: {{examTaskForm?.controls?.["name"]?.value}}
+  Team Name: {{examTaskForm.controls['id'].value}}
 
   <p>Players:</p>
   <button color="primary" (click)="addSubtask()">Add Player</button>
@@ -10,10 +10,10 @@
     </li>
   </ul>
 
-  <button type="submit" color="accent" (click)="saveExamTask()" [disabled]="examTaskForm?.invalid">
+  <button type="submit" color="accent" (click)="saveExamTask()" [disabled]="examTaskForm.invalid">
     Submit
   </button>
-  <pre>Parent Form Status: <span class="status">{{examTaskForm?.status}}</span></pre>
+  <pre>Parent Form Status: <span class="status">{{examTaskForm.status}}</span></pre>
 </form>
 
 {{examTaskForm.getRawValue() | json}}

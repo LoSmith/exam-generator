@@ -1,5 +1,26 @@
+import { ExamSubTask } from "./exam-sub-task.model";
+
+export class ExamTask {
+  id: string;
+  metadata: ExamTaskMetadata;
+  context: ExamTaskContext;
+  subtasks: ExamSubTask[];
+
+  constructor(
+    id: string,
+    metadata: ExamTaskMetadata,
+    context: ExamTaskContext,
+    subtasks: ExamSubTask[] = [],
+  ) {
+    this.id = id;
+    this.metadata = metadata;
+    this.context = context;
+    this.subtasks = subtasks;
+  }
+}
+
 export enum ExamTaskSubject {
-  notSet,
+  none,
   math,
   english,
   german,
@@ -7,20 +28,12 @@ export enum ExamTaskSubject {
   biology,
 }
 
-export interface SubExamTask {
-  question: string;
-  solution: string;
+export interface ExamTaskContext {
+  text: string;
+  image: string;
 }
 
-export interface ExamTask {
-  id: string;
-  metadata: {
-    classLevel?: number;
-    subject?: ExamTaskSubject;
-  };
-  context: {
-    text?: string;
-    image?: string;
-  };
-  subtasks: SubExamTask[];
+export interface ExamTaskMetadata {
+  classLevel: number;
+  subject: ExamTaskSubject;
 }

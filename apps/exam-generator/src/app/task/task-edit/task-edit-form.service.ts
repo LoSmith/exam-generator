@@ -1,26 +1,27 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
-import { ExamTask, ExamTaskForm } from "./models";
-import { ExamSubTask, ExamSubTaskForm } from "./exam-sub-task";
+import { ExamTaskForm } from "./exam-task-form.model";
+import { createNewEmptyExamSubTask, createNewEmptyExamTask } from "../models/default-exam-task";
+import { ExamSubTaskForm } from "./exam-sub-task/exam-sub-task-form.model";
+import { ExamSubTask } from "../models/exam-sub-task.model";
 
 @Injectable()
 export class TaskEditFormService {
   private examTaskForm: BehaviorSubject<FormGroup> =
     new BehaviorSubject<FormGroup>(
-      this.fb.group(new ExamTaskForm(new ExamTask("BLUB")))
+      this.fb.group(new ExamTaskForm(createNewEmptyExamTask()))
     );
   examTaskForm$: Observable<FormGroup> = this.examTaskForm.asObservable();
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(private fb: FormBuilder) {}
 
   addSubtask() {
     const currentExamTask = this.examTaskForm.getValue();
     if (currentExamTask) {
       const currentPlayers = currentExamTask.get("subtasks") as FormArray;
       currentPlayers.push(
-        this.fb.group(new ExamSubTaskForm(new ExamSubTask("", "")))
+        this.fb.group(new ExamSubTaskForm(createNewEmptyExamSubTask()))
       );
       this.examTaskForm.next(currentExamTask);
     }
