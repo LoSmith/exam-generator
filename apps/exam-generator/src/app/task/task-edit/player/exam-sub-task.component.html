@@ -1,0 +1,17 @@
+<form [formGroup]="subTaskForm">
+  <table>
+    <tr>
+      <td>
+        <input matInput formControlName="question" placeholder="question">
+      </td>
+      <td>
+        <input matInput formControlName="solution" placeholder="solution">
+      </td>
+      <td>
+        <!-- emit delete event up w/ index of player -->
+        <button (click)="delete()">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <pre>SubTask Form Status: <span class="status">{{subTaskForm.status}}</span></pre>
+</form>

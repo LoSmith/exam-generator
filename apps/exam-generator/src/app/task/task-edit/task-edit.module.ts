@@ -5,10 +5,11 @@ import { CardModule } from "primeng/card";
 import { InputTextModule } from "primeng/inputtext";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
-import { SubTaskEditComponent } from "./sub-task-edit.component";
+import { TaskEditFormService } from "./task-edit-form.service";
+import { ExamSubTaskComponent } from "./player/exam-sub-task.component";
 
 @NgModule({
-  declarations: [TaskEditComponent, SubTaskEditComponent],
+  declarations: [TaskEditComponent, ExamSubTaskComponent],
   imports: [
     CommonModule,
     CardModule,
@@ -16,5 +17,6 @@ import { SubTaskEditComponent } from "./sub-task-edit.component";
     ReactiveFormsModule,
     ButtonModule,
   ],
+  providers: [TaskEditFormService],
 })
 export class TaskEditModule {}

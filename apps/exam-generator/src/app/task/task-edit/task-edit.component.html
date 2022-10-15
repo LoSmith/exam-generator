@@ -1,61 +1,19 @@
-<div class="h2">
-  Task Edit
-</div>
-<div>
-  Details of the selected task. You can edit it in the fields below.
-</div>
-<!--<div>-->
-<!--  {{form.getRawValue() | json}}-->
-<!--</div>-->
+<form [formGroup]="examTaskForm">
+  Team Name: {{examTaskForm?.controls?.["name"]?.value}}
 
-<p-card>
-  <form class="d-grid">
-    <!--    <div class="row pb-2">-->
-    <!--      <label for="id" class="col col-form-label">ID</label>-->
-    <!--      <div class="col-sm-10">-->
-    <!--        <textarea type="text" class="form-control" contenteditable="false" id="id" [formControl]="controls.id"></textarea>-->
-    <!--      </div>-->
-    <!--    </div>-->
+  <p>Players:</p>
+  <button color="primary" (click)="addSubtask()">Add Player</button>
+  <ul>
+    <li *ngFor="let player of subtasks?.controls; let i = index">
+      <app-exam-sub-task [index]="i" [subTaskForm]="examTaskForm"
+                         (deleteSubTask)="deleteSubtask($event)"></app-exam-sub-task>
+    </li>
+  </ul>
 
-<!--    <div class="row pb-2">-->
-<!--      <label for="question" class="col col-form-label">Question</label>-->
-<!--      <div class="col-sm-10">-->
-<!--        <textarea type="text" class="form-control" id="question" [formControl]="controls.question"></textarea>-->
-<!--      </div>-->
-<!--    </div>-->
+  <button type="submit" color="accent" (click)="saveExamTask()" [disabled]="examTaskForm?.invalid">
+    Submit
+  </button>
+  <pre>Parent Form Status: <span class="status">{{examTaskForm?.status}}</span></pre>
+</form>
 
-<!--    <div class="row pb-2">-->
-<!--      <label for="solution" class="col col-form-label">Solution</label>-->
-<!--      <div class="col-sm-10">-->
-<!--        <textarea type="email" class="form-control" id="solution" [formControl]="controls.solution"></textarea>-->
-<!--      </div>-->
-<!--    </div>-->
-
-    <div>
-      <app-sub-task-edit [parentFormGroup]="baseTaskForm"></app-sub-task-edit>
-    </div>
-
-    <div class="row pb-2">
-      <div class="col">
-        <label for="classLevel">Class Level</label>
-        <select class="form-control" id="classLevel" [formControl]="controls.metadataClass">
-          <option *ngFor="let classLevelOption of examTaskClassLevelOptions">{{classLevelOption}}</option>
-        </select>
-      </div>
-      <div class="col">
-        <label for="subject">Subject</label>
-        {{examTaskSubjectOptions | json}}
-        <select type="text" class="form-control" id="subject" [formControl]="controls.metadataSubject">
-          <option *ngFor="let examTaskSubjectOption of examTaskSubjectOptions">{{examTaskSubjectOption}}</option>
-        </select>
-      </div>
-    </div>
-
-
-  </form>
-  <div class="d-flex justify-content-end pt-4">
-    <button pButton (click)="abortTaskEdit()" class="p-button-danger">Abort</button>
-    <span class="px-3"> </span>
-    <button pButton (click)="saveTask()" class="p-button-success">Save</button>
-  </div>
-</p-card>
+{{examTaskForm.getRawValue() | json}}
