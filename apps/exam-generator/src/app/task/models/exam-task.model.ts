@@ -29,11 +29,12 @@ export enum ExamTaskSubject {
 }
 
 export interface ExamTaskContext {
-  text: string;
+  description: string;
   image: string;
 }
 
 export interface ExamTaskMetadata {
   classLevel: number;
   subject: ExamTaskSubject;
+  tags: string[];
 }

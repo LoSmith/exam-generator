@@ -7,6 +7,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
 import { TaskEditFormService } from "./task-edit-form.service";
 import { ExamSubTaskComponent } from "./exam-sub-task/exam-sub-task.component";
+import { AutoCompleteModule } from "primeng/autocomplete";
+import { ChipsModule } from "primeng/chips";
+import { ImageModule } from "primeng/image";
+import { RippleModule } from "primeng/ripple";
 
 @NgModule({
   declarations: [TaskEditComponent, ExamSubTaskComponent],
@@ -16,6 +20,10 @@ import { ExamSubTaskComponent } from "./exam-sub-task/exam-sub-task.component";
     InputTextModule,
     ReactiveFormsModule,
     ButtonModule,
+    AutoCompleteModule,
+    ChipsModule,
+    ImageModule,
+    RippleModule,
   ],
   providers: [TaskEditFormService],
 })

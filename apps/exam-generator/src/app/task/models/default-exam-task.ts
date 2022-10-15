@@ -7,9 +7,10 @@ export const DEFAULT_EXAM_TASK: ExamTask = {
   metadata: {
     classLevel: 0,
     subject: ExamTaskSubject.none,
+    tags: [],
   },
   context: {
-    text: "",
+    description: "",
     image: "",
   },
   subtasks: [],
@@ -45,7 +46,7 @@ export function createExampleExamTask(subTaskNumber: number): ExamTask {
     ...DEFAULT_EXAM_TASK,
     id: uuidv4(),
     context: {
-      text: "context-dummy-text",
+      description: "context-dummy-text",
       image: "some-image-encoded",
     },
     subtasks: createSubTasks(subTaskNumber),

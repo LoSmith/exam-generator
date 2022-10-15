@@ -4,7 +4,6 @@ import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
 import { ExamTaskForm } from "./exam-task-form.model";
 import { createNewEmptyExamSubTask, createNewEmptyExamTask } from "../models/default-exam-task";
 import { ExamSubTaskForm } from "./exam-sub-task/exam-sub-task-form.model";
-import { ExamSubTask } from "../models/exam-sub-task.model";
 
 @Injectable()
 export class TaskEditFormService {

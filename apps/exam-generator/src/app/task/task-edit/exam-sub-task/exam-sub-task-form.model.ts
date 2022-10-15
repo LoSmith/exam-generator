@@ -1,5 +1,6 @@
 import { FormControl } from "@angular/forms";
 import { ExamSubTask } from "../../models/exam-sub-task.model";
+import { trySetFormControl } from "../../../shared/utils";
 
 export class ExamSubTaskForm {
   question: FormControl<string>;
@@ -9,11 +10,7 @@ export class ExamSubTaskForm {
     this.question = new FormControl();
     this.solution = new FormControl();
 
-    if (subtask.question) {
-      this.question.setValue(subtask.question);
-    }
-    if (subtask.solution) {
-      this.solution.setValue(subtask.solution);
-    }
+    trySetFormControl(this.question, subtask?.question);
+    trySetFormControl(this.solution, subtask?.solution);
   }
 }

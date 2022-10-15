@@ -1,19 +1,20 @@
 {{subTaskForm.getRawValue() | json}}
 
-<form [formGroup]="subTaskForm">
-  <table>
-    <tr>
-      <td>
-        <input formControlName="question" placeholder="question">
-      </td>
-      <td>
-        <input formControlName="solution" placeholder="solution">
-      </td>
-      <td>
-        <!-- emit delete event up w/ index of player -->
-        <button (click)="delete()">Delete</button>
-      </td>
-    </tr>
-  </table>
-  <pre>SubTask Form Status: <span class="status">{{subTaskForm.status}}</span></pre>
+<form class="d-grid" [formGroup]="subTaskForm">
+  <div class="row pb-2">
+    <div class="col d-flex flex-column">
+      <label for="question">Question</label>
+      <textarea formControlName="question" placeholder="question"></textarea>
+    </div>
+    <div class="col d-flex flex-column">
+      <label for="solution">Subject</label>
+      <textarea formControlName="solution" placeholder="solution"></textarea>
+    </div>
+    <div class="col-auto d-flex align-items-center end">
+      <button pRipple pButton (click)="deleteSubTask()" class="pi pi-trash p-button-secondary"> Delete Item</button>
+    </div>
+  </div>
+<!--  <pre>SubTask Form Status: <span class="status">{{subTaskForm.status}}</span></pre>-->
 </form>
+
+

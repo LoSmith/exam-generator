@@ -15,9 +15,9 @@ import { FormGroup } from "@angular/forms";
 export class ExamSubTaskComponent {
   @Input() subTaskForm!: FormGroup;
   @Input() index!: number;
-  @Output() deleteSubTask: EventEmitter<number> = new EventEmitter();
+  @Output() delete: EventEmitter<number> = new EventEmitter();
 
-  delete() {
-    this.deleteSubTask.emit(this.index);
+  deleteSubTask() {
+    this.delete.emit(this.index);
   }
 }

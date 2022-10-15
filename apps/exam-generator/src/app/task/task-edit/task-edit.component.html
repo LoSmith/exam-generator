@@ -1,22 +1,58 @@
-<form [formGroup]="examTaskForm">
-  Team Name: {{examTaskForm.controls['id'].value}}
+<div class="h2">
+  Task Edit
+</div>
+Form valid: <span class="status">{{examTaskForm.status}}</span>
 
-  <p>Players:</p>
-  <button color="primary" (click)="addSubtask()">Add Player</button>
-  <ul>
-    <li *ngFor="let subtask of subtasks?.controls; let i = index">
-      <app-exam-sub-task
-        [index]="i"
-        [subTaskForm]="$any(subtask)"
-        (deleteSubTask)="deleteSubtask($event)"
-      ></app-exam-sub-task>
-    </li>
-  </ul>
+<div>
+  <form class="d-grid" [formGroup]="examTaskForm">
+    <p-card class="d-grid pb-2">
+      <h5>Meta Data</h5>
+      <div class="row pb-2">
+        <div class="col d-flex flex-column">
+          <label for="metadataTags">metadataTags</label>
+          <p-chips formControlName="metadataTags"></p-chips>
+        </div>
+        <div class="col d-flex flex-column">
+          <label for="metadataClassLevel">metadataClassLevel</label>
+          <select formControlName="metadataClassLevel" placeholder="metadataClassLevel"></select>
+        </div>
+        <div class="col d-flex flex-column">
+          <label for="metadataSubject">metadataSubject</label>
+          <select formControlName="metadataSubject" placeholder="metadataSubject"></select>
+        </div>
+      </div>
+    </p-card>
 
-  <button type="submit" color="accent" (click)="saveExamTask()" [disabled]="examTaskForm.invalid">
-    Submit
-  </button>
-  <pre>Parent Form Status: <span class="status">{{examTaskForm.status}}</span></pre>
-</form>
+    <p-card class="d-grid pb-2">
+      <h5>Context</h5>
+      <div class="d-flex w-100">
+        <div class="d-flex flex-column">
+          <label for="contextImage">contextImage</label>
+          <p-image height="300px" src="assets/images/bg/bg1.jpg"></p-image>
+        </div>
+        <div class="d-flex flex-column w-100">
+          <label for="contextDescription">contextDescription</label>
+          <textarea formControlName="contextDescription" placeholder="contextDescription"></textarea>
+        </div>
+      </div>
+    </p-card>
 
-{{examTaskForm.getRawValue() | json}}
+    <p-card class="pb-2 d-flex flex-column">
+      <h5>SUBTASKS</h5>
+      <div *ngFor="let subtask of subtasks?.controls; let i = index">
+        <app-exam-sub-task
+          [index]="i"
+          [subTaskForm]="$any(subtask)"
+          (delete)="deleteSubtask($event)"
+        ></app-exam-sub-task>
+      </div>
+      <button pRipple pButton color="primary" (click)="addSubtask()" class="p-button-info">Add Subtask</button>
+    </p-card>
+
+    <div class="d-flex justify-content-end pt-4">
+      <button pRipple pButton (click)="abortTaskEdit()" class="p-button-danger">Abort</button>
+      <span class="px-3"> </span>
+      <button pRipple pButton (click)="saveExamTask()" class="p-button-success">Save</button>
+    </div>
+  </form>
+</div>
