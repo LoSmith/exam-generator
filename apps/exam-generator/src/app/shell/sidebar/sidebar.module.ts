@@ -4,6 +4,7 @@ import { SidebarComponent } from "./sidebar.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
+import { SharedModule } from "../../shared/shared.module";
 
 @NgModule({
   declarations: [SidebarComponent],
@@ -11,7 +12,8 @@ import { RouterModule } from "@angular/router";
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [SidebarComponent],
 })

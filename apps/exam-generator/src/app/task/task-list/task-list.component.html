@@ -16,20 +16,20 @@
   <ng-template pTemplate="header">
     <tr>
 <!--      <th>Id</th>-->
-      <th>question</th>
-      <th>solution</th>
-      <th>class-level</th>
-      <th>subject</th>
+      <th>Context</th>
+      <th>Subject</th>
+      <th>Class-level</th>
+      <th>NumberOfSubtasks</th>
       <th></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-task>
     <tr>
 <!--      <td>{{ task.id }}</td>-->
-      <td>{{ task.question }}</td>
-      <td>{{ task.solution }}</td>
-      <td>{{ task.metadata.classLevel }}</td>
+      <td>{{ task.context.description }}</td>
       <td>{{ task.metadata.subject }}</td>
+      <td>{{ task.metadata.classLevel }}</td>
+      <td>{{ task.subtasks.length }}</td>
       <td class="flex-row">
         <button
           pButton
@@ -40,13 +40,14 @@
           (click)="editTask(task)"
         ></button>
         <span class="px-2"> </span>
+        <p-confirmPopup></p-confirmPopup>
         <button
           pButton
           pRipple
           type="button"
-          class="p-button-secondary"
+          class="p-button-danger"
           icon="pi pi-trash"
-          (click)="deleteTask(task)"
+          (click)="deleteTask($event, task)"
         ></button>
       </td>
     </tr>

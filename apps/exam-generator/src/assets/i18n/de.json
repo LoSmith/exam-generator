@@ -1,0 +1,11 @@
+{
+  "welcome": {
+    "text": "Hello Angular with ngx-translate!"
+  },
+  "taskList": {
+    "titel": "Aufgaben Liste"
+  },
+  "about": {
+    "titel": "Über"
+  }
+}

@@ -3,14 +3,14 @@ import { MenuItem } from "./menu-item.model";
 export const ROUTES: MenuItem[] = [
   {
     path: "/tasks",
-    title: "Task list",
+    title: "taskList.titel",
     icon: "pi pi-book",
     class: "",
     extralink: false,
   },
   {
     path: "/about",
-    title: "About",
+    title: "about.titel",
     icon: "pi pi-users",
     class: "",
     extralink: false,

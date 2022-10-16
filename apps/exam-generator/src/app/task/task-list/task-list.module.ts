@@ -8,6 +8,7 @@ import { ButtonModule } from "primeng/button";
 import { SharedModule } from "../../shared/shared.module";
 import { TaskService } from "../task.service";
 import { RippleModule } from "primeng/ripple";
+import { ConfirmPopupModule } from "primeng/confirmpopup";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { RippleModule } from "primeng/ripple";
     SharedModule,
     RouterModule,
     RippleModule,
+    ConfirmPopupModule,
   ],
   providers: [TaskService],
   declarations: [TaskListComponent],
