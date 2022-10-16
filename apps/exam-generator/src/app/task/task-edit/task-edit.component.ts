@@ -12,6 +12,7 @@ import {
 import { ExamTaskForm } from "./exam-task-form.model";
 import { ExamSubTaskForm } from "./exam-sub-task/exam-sub-task-form.model";
 import { ExamSubTask } from "../models/exam-sub-task.model";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-task-edit",
@@ -30,7 +31,8 @@ export class TaskEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private confirmationService: ConfirmationService,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private translationService: TranslateService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -73,9 +75,10 @@ export class TaskEditComponent implements OnInit {
   async abortTaskEdit(event: Event) {
     this.confirmationService.confirm({
       target: event.target || undefined,
-      message:
-        "Are you sure you want to exit the task editor? All changes will be lost on abort.",
+      message: this.translationService.instant("taskEdit.abortConfirmationText"),
       icon: "pi pi-exclamation-triangle",
+      acceptLabel: this.translationService.instant("app.yes"),
+      rejectLabel: this.translationService.instant("app.no"),
       accept: () => {
         this.router.navigate(["tasks"]);
       },

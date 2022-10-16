@@ -1,11 +1,58 @@
 {
-  "welcome": {
-    "text": "Hello Angular with ngx-translate!"
+  "about": {
+    "titel": "Impressum"
+  },
+  "app": {
+    "no": "Nein",
+    "titel": "TaskGen",
+    "yes": "Ja"
+  },
+  "pageNotFound": {
+    "text": "Uh Oh! Diese Seite ist mir nicht bekannt 😬"
+  },
+  "taskEdit": {
+    "abortButton": "Abbrechen",
+    "abortConfirmationText": "Sind Sie sicher, dass Sie den Aufgabeneditor beenden wollen? Beim Abbrechen gehen alle Änderungen verloren.",
+    "context": {
+      "description": "Beschreibung",
+      "imageCaption": "Bild",
+      "titel": "Kontext"
+    },
+    "metadata": {
+      "classLevel": "Klassenstufe",
+      "subject": "Unterrichtsfach",
+      "tags": "Tags",
+      "titel": "Metadaten"
+    },
+    "saveButton": "Speichern",
+    "subtasks": {
+      "addSubtask": "Neue Teilaufgabe",
+      "deleteItem": "Teilaufgabe löschen",
+      "deleteItemConfirmationText": "Sind Sie sicher, dass sie die Teilaufgabe löschen wollen?",
+      "question": "Frage",
+      "solution": "Lösung",
+      "titel": "Teilaufgaben"
+    },
+    "titel": "Aufgabe editieren"
   },
   "taskList": {
-    "titel": "Aufgaben Liste"
+    "createNewTask": "Neue Aufgabe erstellen",
+    "subtext": "Hier finden Sie alle gespeicherten Aufgaben.",
+    "titel": "Aufgaben Liste",
+    "table": {
+      "context": "Kontext",
+      "subject": "Unterrichtsfach",
+      "classLevel": "Klassenstufe",
+      "numberOfSubtasks": "Anzahl der Teilaufgaben"
+    }
   },
-  "about": {
-    "titel": "Über"
+  "taskNotFound": {
+    "createNew": "Neue Aufgabe erstellen",
+    "questionText": "Möchten Sie eine neue Aufgabe erstellen?",
+    "showAllTasks": "Alle verfügbaren Aufgaben anzeigen",
+    "text": "Aufgabe wurde nicht gefunden."
+  },
+  "welcome": {
+    "text": "Hello Angular with ngx-translate!"
   }
 }

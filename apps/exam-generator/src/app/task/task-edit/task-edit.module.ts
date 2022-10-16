@@ -13,6 +13,7 @@ import { RippleModule } from "primeng/ripple";
 import { ConfirmPopupModule } from "primeng/confirmpopup";
 import { ConfirmationService } from "primeng/api";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SharedModule } from "../../shared/shared.module";
 
 @NgModule({
   declarations: [TaskEditComponent, ExamSubTaskComponent],
@@ -28,8 +29,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     RippleModule,
     ConfirmPopupModule,
     BrowserAnimationsModule,
+    SharedModule,
   ],
   providers: [ConfirmationService],
 })
-export class TaskEditModule {
-}
+export class TaskEditModule {}

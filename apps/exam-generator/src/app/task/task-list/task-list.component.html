@@ -1,31 +1,32 @@
 <div class="h2">
-  Task List
+  {{ "taskList.titel" | translate }}
 </div>
 <div>
-  Here are all saved tasks in your database.
+  {{ "taskList.subtext" | translate }}
 </div>
 
 <!--{{ (taskList) | json }}-->
 <br>
 <div class="d-flex justify-content-end">
-  <button pButton (click)="createNewTask()" class="p-button-success">Create new Task</button>
+  <p-button pRipple (click)="createNewTask()"
+            class="p-button-success" [label]=' "taskList.createNewTask" | translate' icon="pi pi-plus"></p-button>
 </div>
 
 
 <p-table *ngIf="taskList as tasks" [value]="tasks">
   <ng-template pTemplate="header">
     <tr>
-<!--      <th>Id</th>-->
-      <th>Context</th>
-      <th>Subject</th>
-      <th>Class-level</th>
-      <th>NumberOfSubtasks</th>
+      <!--      <th>Id</th>-->
+      <th>{{ "taskList.table.context" | translate}}</th>
+      <th>{{ "taskList.table.subject" | translate}}</th>
+      <th>{{ "taskList.table.classLevel" | translate}}</th>
+      <th>{{ "taskList.table.numberOfSubtasks" | translate}}</th>
       <th></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-task>
     <tr>
-<!--      <td>{{ task.id }}</td>-->
+      <!--      <td>{{ task.id }}</td>-->
       <td>{{ task.context.description }}</td>
       <td>{{ task.metadata.subject }}</td>
       <td>{{ task.metadata.classLevel }}</td>

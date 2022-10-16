@@ -1,21 +1,17 @@
-{{subTaskForm.getRawValue() | json}}
-
 <form class="d-grid" [formGroup]="subTaskForm">
   <div class="row pb-2">
     <div class="col d-flex flex-column">
-      <label for="question">Question</label>
+      <label for="question">{{ "taskEdit.subtasks.question" | translate}}</label>
       <textarea formControlName="question" placeholder="question"></textarea>
-      <input formControlName="question">
     </div>
     <div class="col d-flex flex-column">
-      <label for="solution">Subject</label>
+      <label for="solution">{{ "taskEdit.subtasks.solution" | translate}}</label>
       <textarea formControlName="solution" placeholder="solution"></textarea>
-      <input formControlName="solution">
     </div>
     <div class="col-auto d-flex align-items-center end">
       <p-confirmPopup></p-confirmPopup>
-      <button pButton (click)="deleteSubTask($event)" icon="pi pi-trash" label="Delete Item" class="p-button-secondary"></button>
+      <button pButton (click)="deleteSubTask($event)" icon="pi pi-trash" [label]='"taskEdit.subtasks.deleteItem" | translate'
+              class="p-button-secondary"></button>
     </div>
   </div>
-<!--  <pre>SubTask Form Status: <span class="status">{{subTaskForm.status}}</span></pre>-->
 </form>
