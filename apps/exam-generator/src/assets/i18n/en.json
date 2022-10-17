@@ -1,6 +1,58 @@
 {
+  "about": {
+    "titel": "About"
+  },
+  "app": {
+    "no": "No",
+    "titel": "TaskGen",
+    "yes": "Yes"
+  },
+  "pageNotFound": {
+    "text": "Uh Oh! I don't know this page 😬"
+  },
+  "taskEdit": {
+    "abortButton": "Abort",
+    "abortConfirmationText": "Are you sure, you want to close the task edit? With closing this page, you lose all changes.",
+    "context": {
+      "description": "Description",
+      "imageCaption": "Image",
+      "titel": "Context"
+    },
+    "metadata": {
+      "classLevel": "Class level",
+      "subject": "Subject",
+      "tags": "Tags",
+      "titel": "Metadata"
+    },
+    "saveButton": "Save",
+    "subtasks": {
+      "addSubtask": "New Subtask",
+      "deleteItem": "Delete Subtask",
+      "deleteItemConfirmationText": "Are you sure you want to delete the subtask?",
+      "question": "Question",
+      "solution": "Solution",
+      "titel": "Subtask"
+    },
+    "titel": "Edit Task"
+  },
   "taskList": {
     "createNewTask": "Create new Task",
-    "subtext": ""
+    "subtext": "Here you find all saved tasks",
+    "table": {
+      "classLevel": "Class level",
+      "context": "Context",
+      "numberOfSubtasks": "Number of subtasks",
+      "subject": "Subject"
+    },
+    "titel": "Tasks list"
+  },
+  "taskNotFound": {
+    "createNew": "Create new task",
+    "questionText": "Do you want to create a new task?",
+    "showAllTasks": "Show all available tasks",
+    "text": "Task was not found."
+  },
+  "welcome": {
+    "text": "Hello Angular with ngx-trasnlate"
   }
 }

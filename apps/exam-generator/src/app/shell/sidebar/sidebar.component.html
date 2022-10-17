@@ -7,14 +7,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li *ngFor="let menuEntry of menuItems" class="nav-item pb-2">
-        <a
-          [routerLink]="menuEntry.path !== '' ? [menuEntry.path] : null"
-          class="nav-link menu-item"
-          aria-current="page"
-        >
-          <i [class]="menuEntry.icon"></i>
-          {{menuEntry.title | translate}}
-        </a>
+        <p-button [routerLink]="menuEntry.path" [label]="menuEntry.title | translate" [icon]="menuEntry.icon"></p-button>
       </li>
     </ul>
   </div>

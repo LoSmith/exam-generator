@@ -5,10 +5,19 @@ import { RouterModule } from "@angular/router";
 import { BadgeModule } from "primeng/badge";
 import { AvatarModule } from "primeng/avatar";
 import { ButtonModule } from "primeng/button";
+import { MenuModule } from "primeng/menu";
+import { RippleModule } from "primeng/ripple";
 
 @NgModule({
   declarations: [HeaderComponent],
-  imports: [CommonModule, RouterModule, AvatarModule, ButtonModule],
-  exports: [HeaderComponent]
+  imports: [
+    CommonModule,
+    RouterModule,
+    AvatarModule,
+    ButtonModule,
+    MenuModule,
+    RippleModule,
+  ],
+  exports: [HeaderComponent],
 })
 export class NavigationModule {}

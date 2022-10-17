@@ -5,6 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "../../shared/shared.module";
+import { ButtonModule } from "primeng/button";
 
 @NgModule({
   declarations: [SidebarComponent],
@@ -13,7 +14,8 @@ import { SharedModule } from "../../shared/shared.module";
     BrowserModule,
     HttpClientModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    ButtonModule,
   ],
   exports: [SidebarComponent],
 })

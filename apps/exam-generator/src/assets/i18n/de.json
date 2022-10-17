@@ -38,13 +38,13 @@
   "taskList": {
     "createNewTask": "Neue Aufgabe erstellen",
     "subtext": "Hier finden Sie alle gespeicherten Aufgaben.",
-    "titel": "Aufgaben Liste",
     "table": {
-      "context": "Kontext",
-      "subject": "Unterrichtsfach",
       "classLevel": "Klassenstufe",
-      "numberOfSubtasks": "Anzahl der Teilaufgaben"
-    }
+      "context": "Kontext",
+      "numberOfSubtasks": "Anzahl der Teilaufgaben",
+      "subject": "Unterrichtsfach"
+    },
+    "titel": "Aufgaben Liste"
   },
   "taskNotFound": {
     "createNew": "Neue Aufgabe erstellen",
