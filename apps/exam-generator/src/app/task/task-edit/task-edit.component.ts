@@ -25,6 +25,8 @@ export class TaskEditComponent implements OnInit {
   public examTaskClassLevelOptions: number[] = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
   ];
+  metadataTagsSuggestions: string[] = ["bla", "blub"];
+  filteredMetadataTagsSuggestions: string[] = [];
   private urlTaskId!: string;
 
   constructor(
@@ -75,7 +77,9 @@ export class TaskEditComponent implements OnInit {
   async abortTaskEdit(event: Event) {
     this.confirmationService.confirm({
       target: event.target || undefined,
-      message: this.translationService.instant("taskEdit.abortConfirmationText"),
+      message: this.translationService.instant(
+        "taskEdit.abortConfirmationText"
+      ),
       icon: "pi pi-exclamation-triangle",
       acceptLabel: this.translationService.instant("app.yes"),
       rejectLabel: this.translationService.instant("app.no"),
@@ -100,6 +104,11 @@ export class TaskEditComponent implements OnInit {
       this.controls.metadataSubject,
       examTask.metadata?.subject,
       "metadataSubject"
+    );
+    trySetFormValue(
+      this.controls.metadataTags,
+      examTask.metadata?.tags,
+      "taskEdit.metadata.tags"
     );
     trySetFormValue(
       this.controls.contextDescription,

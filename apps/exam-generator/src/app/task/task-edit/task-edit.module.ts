@@ -14,6 +14,8 @@ import { ConfirmPopupModule } from "primeng/confirmpopup";
 import { ConfirmationService } from "primeng/api";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "../../shared/shared.module";
+import { EditorModule } from "primeng/editor";
+import { DropdownModule } from "primeng/dropdown";
 
 @NgModule({
   declarations: [TaskEditComponent, ExamSubTaskComponent],
@@ -30,6 +32,8 @@ import { SharedModule } from "../../shared/shared.module";
     ConfirmPopupModule,
     BrowserAnimationsModule,
     SharedModule,
+    EditorModule,
+    DropdownModule,
   ],
   providers: [ConfirmationService],
 })

@@ -2,11 +2,11 @@
   <div class="row pb-2">
     <div class="col d-flex flex-column">
       <label for="question">{{ "taskEdit.subtasks.question" | translate}}</label>
-      <textarea formControlName="question" placeholder="question"></textarea>
+      <p-editor formControlName="question"></p-editor>
     </div>
     <div class="col d-flex flex-column">
       <label for="solution">{{ "taskEdit.subtasks.solution" | translate}}</label>
-      <textarea formControlName="solution" placeholder="solution"></textarea>
+      <p-editor formControlName="solution"></p-editor>
     </div>
     <div class="col-auto d-flex align-items-center end">
       <p-confirmPopup></p-confirmPopup>

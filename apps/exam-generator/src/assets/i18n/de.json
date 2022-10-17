@@ -31,7 +31,8 @@
       "deleteItemConfirmationText": "Sind Sie sicher, dass sie die Teilaufgabe löschen wollen?",
       "question": "Frage",
       "solution": "Lösung",
-      "titel": "Teilaufgaben"
+      "titelPlural": "Teilaufgaben",
+      "titelSingular": "Teilaufgabe"
     },
     "titel": "Aufgabe editieren"
   },

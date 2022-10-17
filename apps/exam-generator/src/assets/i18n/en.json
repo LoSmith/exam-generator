@@ -31,7 +31,8 @@
       "deleteItemConfirmationText": "Are you sure you want to delete the subtask?",
       "question": "Question",
       "solution": "Solution",
-      "titel": "Subtask"
+      "titelPlural": "Subtask",
+      "titelSingular": "Subtask"
     },
     "titel": "Edit Task"
   },
