@@ -2,17 +2,20 @@ import { ExamSubTask } from "./exam-sub-task.model";
 
 export class ExamTask {
   id: string;
+  title: string;
   metadata: ExamTaskMetadata;
   context: ExamTaskContext;
   subtasks: ExamSubTask[];
 
   constructor(
     id: string,
+    title: string,
     metadata: ExamTaskMetadata,
     context: ExamTaskContext,
     subtasks: ExamSubTask[] = [],
   ) {
     this.id = id;
+    this.title = title;
     this.metadata = metadata;
     this.context = context;
     this.subtasks = subtasks;

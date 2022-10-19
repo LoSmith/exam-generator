@@ -19,8 +19,8 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: "./task-edit.component.html",
 })
 export class TaskEditComponent implements OnInit {
-  public controls = new ExamTaskForm();
-  public formGroup = new FormGroup(this.controls);
+  public formControls = new ExamTaskForm();
+  public formGroup = new FormGroup(this.formControls);
   public examTaskSubjectOptions: string[] = Object.keys(ExamTaskSubject);
   public examTaskClassLevelOptions: number[] = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
@@ -58,11 +58,11 @@ export class TaskEditComponent implements OnInit {
 
   addSubtask(subtask: ExamSubTask = EMPTY_EXAM_SUB_TASK) {
     const newSubtask = new FormGroup(new ExamSubTaskForm(subtask));
-    this.controls.subtasks.push(newSubtask);
+    this.formControls.subtasks.push(newSubtask);
   }
 
   deleteSubtask(index: number) {
-    const currentSubtasks = this.controls.subtasks;
+    const currentSubtasks = this.formControls.subtasks;
     currentSubtasks.removeAt(index);
   }
 
@@ -94,29 +94,29 @@ export class TaskEditComponent implements OnInit {
 
   public tryLoadExamTaskIntoForms(examTask: ExamTask): void {
     console.log(`trying to load ${JSON.stringify(examTask)}`);
-    trySetFormValue(this.controls.id, examTask.id, "id");
+    trySetFormValue(this.formControls.id, examTask.id, "id");
     trySetFormValue(
-      this.controls.metadataClassLevel,
+      this.formControls.metadataClassLevel,
       examTask.metadata?.classLevel,
       "metadataClassLevel"
     );
     trySetFormValue(
-      this.controls.metadataSubject,
+      this.formControls.metadataSubject,
       examTask.metadata?.subject,
       "metadataSubject"
     );
     trySetFormValue(
-      this.controls.metadataTags,
+      this.formControls.metadataTags,
       examTask.metadata?.tags,
       "taskEdit.metadata.tags"
     );
     trySetFormValue(
-      this.controls.contextDescription,
+      this.formControls.contextDescription,
       examTask.context?.description,
       "contextDescription"
     );
     trySetFormValue(
-      this.controls.contextImage,
+      this.formControls.contextImage,
       examTask.context?.image,
       "contextImage"
     );
@@ -127,18 +127,19 @@ export class TaskEditComponent implements OnInit {
 
   private serializeData(): ExamTask {
     return {
-      id: this.controls.id.getRawValue(),
+      id: this.formControls.id.getRawValue(),
+      title: this.formControls.title.getRawValue(),
       metadata: {
-        classLevel: this.controls.metadataClassLevel.getRawValue() || 0,
+        classLevel: this.formControls.metadataClassLevel.getRawValue() || 0,
         subject:
-          this.controls.metadataSubject.getRawValue() || ExamTaskSubject.none,
-        tags: this.controls.metadataTags.getRawValue() || [],
+          this.formControls.metadataSubject.getRawValue() || ExamTaskSubject.none,
+        tags: this.formControls.metadataTags.getRawValue() || [],
       },
       context: {
-        description: this.controls.contextDescription.getRawValue() || "",
-        image: this.controls.contextImage.getRawValue() || "",
+        description: this.formControls.contextDescription.getRawValue() || "",
+        image: this.formControls.contextImage.getRawValue() || "",
       },
-      subtasks: this.controls.subtasks.getRawValue() || [],
+      subtasks: this.formControls.subtasks.getRawValue() || [],
     };
   }
 }

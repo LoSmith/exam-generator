@@ -1,5 +1,5 @@
 <div class="h2">
-  {{ "taskEdit.titel" | translate }}
+  {{ "taskEdit.pageTitle" | translate }}
 </div>
 
 <!--{{ formGroup.getRawValue() | json}}-->
@@ -7,6 +7,13 @@
 <div>
   <form class="d-grid" [formGroup]="formGroup">
     <p-card class="d-grid pb-2">
+      <div class="d-flex flex-column">
+        <label for="title"><h2>{{ "taskEdit.title" | translate }}</h2></label>
+        <input id="title" pInputText type="text" [formControl]="formControls.title">
+      </div>
+    </p-card>
+
+    <p-card class="d-flex flex-column pb-2">
       <h5>{{ "taskEdit.context.titel" | translate }}</h5>
       <div class="d-flex w-100">
         <div class="d-flex flex-column pe-2">
@@ -15,7 +22,7 @@
         </div>
         <div class="d-flex flex-column w-100">
           <label for="contextDescription">{{ "taskEdit.context.description" | translate }}</label>
-          <p-editor [formControl]="controls.contextDescription"></p-editor>
+          <p-editor [formControl]="formControls.contextDescription"></p-editor>
         </div>
       </div>
     </p-card>
@@ -23,7 +30,7 @@
     <p-card class="pb-2 d-flex flex-column">
       <h5>{{ "taskEdit.subtasks.titelPlural" | translate }}</h5>
 
-      <div *ngFor="let subtask of controls.subtasks.controls; let i = index">
+      <div *ngFor="let subtask of formControls.subtasks.controls; let i = index">
         <h6>{{ "taskEdit.subtasks.titelSingular" | translate}} {{i + 1}}</h6>
         <app-exam-sub-task
           [index]="i"
@@ -40,15 +47,16 @@
       <div class="d-flex pb-2">
         <div class="d-flex flex-column pe-2">
           <label for="metadataClassLevel">{{ "taskEdit.metadata.classLevel" | translate }}</label>
-          <p-dropdown [options]="examTaskClassLevelOptions" [formControl]="controls.metadataClassLevel"></p-dropdown>
+          <p-dropdown [options]="examTaskClassLevelOptions"
+                      [formControl]="formControls.metadataClassLevel"></p-dropdown>
         </div>
         <div class="d-flex flex-column pe-2">
           <label for="metadataSubject">{{ "taskEdit.metadata.subject" | translate }}</label>
-          <p-dropdown [options]="examTaskSubjectOptions" [formControl]="controls.metadataSubject"></p-dropdown>
+          <p-dropdown [options]="examTaskSubjectOptions" [formControl]="formControls.metadataSubject"></p-dropdown>
         </div>
         <div class="d-flex flex-column pe-2">
           <label for="metadataTags">{{ "taskEdit.metadata.tags" | translate }}</label>
-          <p-chips [formControl]="controls.metadataTags"></p-chips>
+          <p-chips [formControl]="formControls.metadataTags"></p-chips>
         </div>
       </div>
     </p-card>

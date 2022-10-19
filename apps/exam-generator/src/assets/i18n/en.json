@@ -11,6 +11,7 @@
     "text": "Uh Oh! I don't know this page 😬"
   },
   "taskEdit": {
+    "title": "Title",
     "abortButton": "Abort",
     "abortConfirmationText": "Are you sure, you want to close the task edit? With closing this page, you lose all changes.",
     "context": {
@@ -34,7 +35,7 @@
       "titelPlural": "Subtask",
       "titelSingular": "Subtask"
     },
-    "titel": "Edit Task"
+    "pageTitle": "Edit Task"
   },
   "taskList": {
     "createNewTask": "Create new Task",

@@ -11,6 +11,7 @@
     "text": "Uh Oh! Diese Seite ist mir nicht bekannt 😬"
   },
   "taskEdit": {
+    "title": "Titel",
     "abortButton": "Abbrechen",
     "abortConfirmationText": "Sind Sie sicher, dass Sie den Aufgabeneditor beenden wollen? Beim Abbrechen gehen alle Änderungen verloren.",
     "context": {
@@ -34,7 +35,7 @@
       "titelPlural": "Teilaufgaben",
       "titelSingular": "Teilaufgabe"
     },
-    "titel": "Aufgabe editieren"
+    "pageTitle": "Aufgabe editieren"
   },
   "taskList": {
     "createNewTask": "Neue Aufgabe erstellen",

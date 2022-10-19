@@ -21,11 +21,10 @@ import { DropdownModule } from "primeng/dropdown";
   declarations: [TaskEditComponent, ExamSubTaskComponent],
   imports: [
     CommonModule,
-    CardModule,
-    InputTextModule,
     ReactiveFormsModule,
+    InputTextModule,
+    CardModule,
     ButtonModule,
-    AutoCompleteModule,
     ChipsModule,
     ImageModule,
     RippleModule,

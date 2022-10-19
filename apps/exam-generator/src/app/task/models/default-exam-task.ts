@@ -4,6 +4,7 @@ import { ExamSubTask } from "./exam-sub-task.model";
 
 export const EMPTY_EXAM_TASK: ExamTask = {
   id: "",
+  title: "",
   metadata: {
     classLevel: 1,
     subject: ExamTaskSubject.none,
@@ -43,6 +44,7 @@ export function createExampleExamTask(id: string = uuidv4(), subTaskNumber: numb
   return {
     ...EMPTY_EXAM_TASK,
     id,
+    title: "ExampleTask",
     metadata: {
       classLevel: 13,
       subject: ExamTaskSubject.esTut,
