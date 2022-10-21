@@ -28,35 +28,6 @@
       </div>
     </p-card>
 
-    <p-card class="d-flex flex-column pb-2">
-      <h5>{{ "taskEdit.context.titel" | translate }}</h5>
-      <div class="d-flex w-100">
-        <div *ngIf="formControls.contextImage.getRawValue()" class="d-flex flex-column pe-2">
-          <label for="contextImage">{{ "taskEdit.context.imageCaption" | translate }}</label>
-          <p-image height="300px" src="assets/images/bg/placeholder.jpg"></p-image>
-        </div>
-        <div class="d-flex flex-column w-100">
-          <label for="contextDescription">{{ "taskEdit.context.description" | translate }}</label>
-          <p-editor [formControl]="formControls.contextDescription"></p-editor>
-        </div>
-      </div>
-    </p-card>
-
-    <p-card class="pb-2 d-flex flex-column">
-      <h5>{{ "taskEdit.subtasks.titelPlural" | translate }}</h5>
-
-      <div *ngFor="let subtask of formControls.subtasks.controls; let i = index">
-        <h6>{{ "taskEdit.subtasks.titelSingular" | translate}} {{i + 1}}</h6>
-        <app-exam-sub-task
-          [index]="i"
-          [subTaskForm]="subtask"
-          (delete)="deleteSubtask($event)"
-        ></app-exam-sub-task>
-      </div>
-      <p-button pRipple (click)="addSubtask()" class="p-button-secondary" icon="pi pi-plus"
-                [label]='"taskEdit.subtasks.addSubtask" | translate'></p-button>
-    </p-card>
-
     <div class="d-flex justify-content-end pt-4">
       <p-confirmPopup></p-confirmPopup>
       <button pRipple pButton (click)="abortTaskEdit($event)" class="p-button-text"

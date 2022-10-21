@@ -7,6 +7,8 @@ import { TaskEditComponent } from "./task/task-edit/task-edit.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { ExamTaskNotFoundComponent } from "./task/exam-task-not-found/exam-task-not-found.component";
+import { ExamListComponent } from "./exam/exam-list/exam-list.component";
+import { ExamEditComponent } from "./exam/exam-edit/exam-edit.component";
 
 export const routes: Routes = [
   {
@@ -15,34 +17,43 @@ export const routes: Routes = [
     children: [
       {
         path: "tasks",
-        component: TaskListComponent,
+        component: TaskListComponent
       },
       {
         path: "tasks/:id/edit",
-        component: TaskEditComponent,
+        component: TaskEditComponent
       },
       {
         path: "tasks/:id/task-not-found",
-        component: ExamTaskNotFoundComponent,
+        component: ExamTaskNotFoundComponent
+      },
+      {
+        path: "exams",
+        component: ExamListComponent
+      },
+      {
+        path: "exams/:id/edit",
+        component: ExamEditComponent
       },
       {
         path: "about",
-        component: AboutComponent,
+        component: AboutComponent
       },
       {
         path: "welcome",
-        component: WelcomeComponent,
+        component: WelcomeComponent
       },
       {
         path: "**",
-        component: PageNotFoundComponent,
+        component: PageNotFoundComponent
       }
-    ],
-  },
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

@@ -2,26 +2,22 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ConfirmationService } from "primeng/api";
-import { TaskService } from "../task.service";
 import { trySetFormValue } from "../../shared/utils";
-import { ExamTask, ExamTaskSubject } from "../models/exam-task.model";
-import {
-  createNewEmptyExamTask,
-  EMPTY_EXAM_SUB_TASK,
-} from "../models/default-exam-task";
-import { ExamTaskForm } from "./exam-task-form.model";
-import { ExamSubTaskForm } from "./exam-sub-task/exam-sub-task-form.model";
-import { ExamSubTask } from "../models/exam-sub-task.model";
+import { Exam } from "../models/exam-task.model";
+import { createNewEmptyExamTask } from "../models/default-exam";
+import { ExamForm } from "./exam-task-form.model";
 import { TranslateService } from "@ngx-translate/core";
+import { ClassSubject } from "../../shared/models/subject.model";
+import { ExamService } from "../exam.service";
 
 @Component({
   selector: "app-task-edit",
-  templateUrl: "./task-edit.component.html",
+  templateUrl: "./exam-edit.component.html",
 })
-export class TaskEditComponent implements OnInit {
-  public formControls = new ExamTaskForm();
+export class ExamEditComponent implements OnInit {
+  public formControls = new ExamForm();
   public formGroup = new FormGroup(this.formControls);
-  public examTaskSubjectOptions: string[] = Object.keys(ExamTaskSubject);
+  public examTaskSubjectOptions: string[] = Object.keys(ClassSubject);
   public examTaskClassLevelOptions: number[] = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
   ];
@@ -33,7 +29,7 @@ export class TaskEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private confirmationService: ConfirmationService,
-    private taskService: TaskService,
+    private taskService: ExamService,
     private translationService: TranslateService
   ) {}
 
@@ -51,19 +47,23 @@ export class TaskEditComponent implements OnInit {
         const newExamTask = createNewEmptyExamTask(this.urlTaskId);
         this.tryLoadExamTaskIntoForms(newExamTask);
       } else {
-        this.router.navigate([`tasks/${this.urlTaskId}/task-not-found`]);
+        this.router.navigate([`exam/${this.urlTaskId}/task-not-found`]);
       }
     }
   }
 
-  addSubtask(subtask: ExamSubTask = EMPTY_EXAM_SUB_TASK) {
-    const newSubtask = new FormGroup(new ExamSubTaskForm(subtask));
-    this.formControls.subtasks.push(newSubtask);
+  addTask(examTaskId: string) {
+    const ids = this.formControls.examTasks.getRawValue();
+    this.formControls.examTasks.setValue([... ids, examTaskId]);
   }
 
-  deleteSubtask(index: number) {
-    const currentSubtasks = this.formControls.subtasks;
-    currentSubtasks.removeAt(index);
+  deleteSubtask(toDeleteId: string) {
+    const ids = this.formControls.examTasks.getRawValue() as string[];
+    if (ids.includes(toDeleteId)) {
+      this.formControls.examTasks.setValue(
+        ids.filter((id) => id !== toDeleteId)
+      );
+    }
   }
 
   async saveExamTask() {
@@ -92,7 +92,7 @@ export class TaskEditComponent implements OnInit {
     });
   }
 
-  public tryLoadExamTaskIntoForms(examTask: ExamTask): void {
+  public tryLoadExamTaskIntoForms(examTask: Exam): void {
     console.log(`trying to load ${JSON.stringify(examTask)}`);
     trySetFormValue(this.formControls.id, examTask.id, "id");
     trySetFormValue(this.formControls.title, examTask.title, "title");
@@ -112,35 +112,23 @@ export class TaskEditComponent implements OnInit {
       "taskEdit.metadata.tags"
     );
     trySetFormValue(
-      this.formControls.contextDescription,
-      examTask.context?.description,
-      "contextDescription"
+      this.formControls.examTasks,
+      examTask.examTasks,
+      "taskEdit.examTasks"
     );
-    trySetFormValue(
-      this.formControls.contextImage,
-      examTask.context?.image,
-      "contextImage"
-    );
-    examTask.subtasks.forEach((subtask) => {
-      this.addSubtask(subtask);
-    });
   }
 
-  private serializeData(): ExamTask {
+  private serializeData(): Exam {
     return {
       id: this.formControls.id.getRawValue(),
       title: this.formControls.title.getRawValue(),
       metadata: {
         classLevel: this.formControls.metadataClassLevel.getRawValue() || 0,
         subject:
-          this.formControls.metadataSubject.getRawValue() || ExamTaskSubject.none,
+          this.formControls.metadataSubject.getRawValue() || ClassSubject.none,
         tags: this.formControls.metadataTags.getRawValue() || [],
       },
-      context: {
-        description: this.formControls.contextDescription.getRawValue() || "",
-        image: this.formControls.contextImage.getRawValue() || "",
-      },
-      subtasks: this.formControls.subtasks.getRawValue() || [],
+      examTasks: this.formControls.examTasks.getRawValue() || [],
     };
   }
 }

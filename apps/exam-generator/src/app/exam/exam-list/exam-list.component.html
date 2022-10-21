@@ -8,29 +8,27 @@
 <!--{{ (taskList) | json }}-->
 <br>
 <div class="d-flex justify-content-end">
-  <p-button pRipple (click)="createNewTask()"
+  <p-button pRipple (click)="createNewExam()"
             class="p-button-success" [label]=' "taskList.createNewTask" | translate' icon="pi pi-plus"></p-button>
 </div>
 
 
-<p-table *ngIf="taskList as tasks" [value]="tasks">
+<p-table *ngIf="examList as exam" [value]="exam">
   <ng-template pTemplate="header">
     <tr>
       <!--      <th>Id</th>-->
       <th>{{ "taskList.table.title" | translate}}</th>
       <th>{{ "taskList.table.subject" | translate}}</th>
       <th>{{ "taskList.table.classLevel" | translate}}</th>
-      <th>{{ "taskList.table.numberOfSubtasks" | translate}}</th>
       <th></th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-task>
+  <ng-template pTemplate="body" let-exam>
     <tr>
       <!--      <td>{{ task.id }}</td>-->
-      <td>{{ task.title }}</td>
-      <td>{{ task.metadata.subject }}</td>
-      <td>{{ task.metadata.classLevel }}</td>
-      <td>{{ task.subtasks.length }}</td>
+      <td>{{ exam.title }}</td>
+      <td>{{ exam.metadata.subject }}</td>
+      <td>{{ exam.metadata.classLevel }}</td>
       <td class="flex-row">
         <button
           pButton
@@ -38,7 +36,7 @@
           type="button"
           class="p-button-secondary"
           icon="pi pi-pencil"
-          (click)="editTask(task)"
+          (click)="editExam(exam)"
         ></button>
         <span class="px-2"> </span>
         <p-confirmPopup></p-confirmPopup>
@@ -48,7 +46,7 @@
           type="button"
           class="p-button-danger"
           icon="pi pi-trash"
-          (click)="deleteTask($event, task)"
+          (click)="deleteTask($event, exam)"
         ></button>
       </td>
     </tr>

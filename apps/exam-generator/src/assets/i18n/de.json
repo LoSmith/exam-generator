@@ -7,11 +7,16 @@
     "titel": "TaskGen",
     "yes": "Ja"
   },
+  "exam": {
+    "list": {
+      "examtitle": "KlausurÜberschrift",
+      "shortcut": "Klausuren"
+    }
+  },
   "pageNotFound": {
     "text": "Uh Oh! Diese Seite ist mir nicht bekannt 😬"
   },
   "taskEdit": {
-    "title": "Titel",
     "abortButton": "Abbrechen",
     "abortConfirmationText": "Sind Sie sicher, dass Sie den Aufgabeneditor beenden wollen? Beim Abbrechen gehen alle Änderungen verloren.",
     "context": {
@@ -25,6 +30,7 @@
       "tags": "Tags",
       "titel": "Metadaten"
     },
+    "pageTitle": "Aufgabe editieren",
     "saveButton": "Speichern",
     "subtasks": {
       "addSubtask": "Neue Teilaufgabe",
@@ -35,7 +41,7 @@
       "titelPlural": "Teilaufgaben",
       "titelSingular": "Teilaufgabe"
     },
-    "pageTitle": "Aufgabe editieren"
+    "title": "Titel"
   },
   "taskList": {
     "createNewTask": "Neue Aufgabe erstellen",
@@ -44,7 +50,8 @@
       "classLevel": "Klassenstufe",
       "context": "Kontext",
       "numberOfSubtasks": "Anzahl der Teilaufgaben",
-      "subject": "Unterrichtsfach"
+      "subject": "Unterrichtsfach",
+      "title": "Titel"
     },
     "titel": "Aufgaben Liste"
   },

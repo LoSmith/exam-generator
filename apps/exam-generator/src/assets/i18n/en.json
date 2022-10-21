@@ -7,11 +7,16 @@
     "titel": "TaskGen",
     "yes": "Yes"
   },
+  "exam": {
+    "list": {
+      "examtitle": "ExamTitle",
+      "shortcut": "Exams"
+    }
+  },
   "pageNotFound": {
     "text": "Uh Oh! I don't know this page 😬"
   },
   "taskEdit": {
-    "title": "Title",
     "abortButton": "Abort",
     "abortConfirmationText": "Are you sure, you want to close the task edit? With closing this page, you lose all changes.",
     "context": {
@@ -25,6 +30,7 @@
       "tags": "Tags",
       "titel": "Metadata"
     },
+    "pageTitle": "Edit Task",
     "saveButton": "Save",
     "subtasks": {
       "addSubtask": "New Subtask",
@@ -35,7 +41,7 @@
       "titelPlural": "Subtask",
       "titelSingular": "Subtask"
     },
-    "pageTitle": "Edit Task"
+    "title": "Title"
   },
   "taskList": {
     "createNewTask": "Create new Task",
@@ -44,7 +50,8 @@
       "classLevel": "Class level",
       "context": "Context",
       "numberOfSubtasks": "Number of subtasks",
-      "subject": "Subject"
+      "subject": "Subject",
+      "title": "Title"
     },
     "titel": "Tasks list"
   },

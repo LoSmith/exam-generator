@@ -17,6 +17,7 @@ import { environment } from "../environments/environment";
 import { TaskModule } from "./task/task.module";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { ExamModule } from "./exam/exam.module";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,6 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     WelcomeModule,
     ShellModule,
     TaskModule,
+    ExamModule,
     AboutModule,
     SharedModule,
     PageNotFoundModule,
